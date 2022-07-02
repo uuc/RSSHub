@@ -565,6 +565,20 @@
       }
     ]
   },
+  "gitlab.io": {
+    "_name": "GitLab",
+    "agora0": [
+      {
+        "title": "零博客",
+        "docs": "https://docs.rsshub.app/blog.html#ling-bo-ke-fen-lei",
+        "source": [
+          "/blog/:category",
+          "/"
+        ],
+        "target": "/agora0/:category"
+      }
+    ]
+  },
   "ahjzu.edu.cn": {
     "_name": "安徽建筑大学",
     "news": [
@@ -792,6 +806,20 @@
         "source": [
           "/realtime/:channel"
         ]
+      }
+    ]
+  },
+  "appleinsider.com": {
+    "_name": "AppleInsider",
+    ".": [
+      {
+        "title": "分类",
+        "docs": "https://docs.rsshub.app/new-media.html#appleinsider-fen-lei",
+        "source": [
+          "/:category",
+          "/"
+        ],
+        "target": "/appleinsider/:category"
       }
     ]
   },
@@ -1550,6 +1578,19 @@
       }
     ]
   },
+  "cbnweek.com": {
+    "_name": "第一财经杂志",
+    ".": [
+      {
+        "title": "首页",
+        "docs": "https://docs.rsshub.app/finance.html#di-yi-cai-jing-za-zhi-shou-ye",
+        "source": [
+          "/"
+        ],
+        "target": "/cbnweek"
+      }
+    ]
+  },
   "ccac.org.mo": {
     "_name": "澳门廉政公署",
     ".": [
@@ -1604,7 +1645,7 @@
         "title": "要闻导读",
         "docs": "https://docs.rsshub.app/government.html#guo-jia-yao-pin-shen-ping-wang-zhan-shou-ye",
         "source": [
-          "/main/news/listpage/545cf855a50574699b46b26bcb165f32"
+          "/main/news/listpage/1e0a362d64015ebcbf32d6949acbba11"
         ],
         "target": "/cde/news/ywdd"
       },
@@ -1612,7 +1653,7 @@
         "title": "图片新闻",
         "docs": "https://docs.rsshub.app/government.html#guo-jia-yao-pin-shen-ping-wang-zhan-shou-ye",
         "source": [
-          "/main/news/listpage/545cf855a50574699b46b26bcb165f32"
+          "/main/news/listpage/4b49e3142441860ac6a48c888a54712a"
         ],
         "target": "/cde/news/tpxw"
       },
@@ -1620,7 +1661,7 @@
         "title": "工作动态",
         "docs": "https://docs.rsshub.app/government.html#guo-jia-yao-pin-shen-ping-wang-zhan-shou-ye",
         "source": [
-          "/main/news/listpage/545cf855a50574699b46b26bcb165f32"
+          "/main/news/listpage/3cc45b396497b598341ce3af000490e5"
         ],
         "target": "/cde/news/gzdt"
       },
@@ -1636,9 +1677,33 @@
         "title": "中心规章",
         "docs": "https://docs.rsshub.app/government.html#guo-jia-yao-pin-shen-ping-wang-zhan-shou-ye",
         "source": [
-          "/main/policy/listpage/9f9c74c73e0f8f56a8bfbc646055026d"
+          "/main/policy/listpage/369ac7cfeb67c6000c33f85e6f374044"
         ],
         "target": "/cde/policy/zxgz"
+      },
+      {
+        "title": "优先审评公示 - 信息公开",
+        "docs": "https://docs.rsshub.app/government.html#guo-jia-yao-pin-shen-ping-wang-zhan-shou-ye",
+        "source": [
+          "/main/xxgk/listpage/2f78f372d351c6851af7431c7710a731"
+        ],
+        "target": "/cde/xxgf/priorityApproval"
+      },
+      {
+        "title": "突破性治疗公示 - 信息公开",
+        "docs": "https://docs.rsshub.app/government.html#guo-jia-yao-pin-shen-ping-wang-zhan-shou-ye",
+        "source": [
+          "/main/xxgk/listpage/da6efd086c099b7fc949121166f0130c"
+        ],
+        "target": "/cde/xxgf/breakthroughCure"
+      },
+      {
+        "title": "临床试验默示许可 - 信息公开",
+        "docs": "https://docs.rsshub.app/government.html#guo-jia-yao-pin-shen-ping-wang-zhan-shou-ye",
+        "source": [
+          "/main/xxgk/listpage/4b5255eb0a84820cef4ca3e8b6bbe20c"
+        ],
+        "target": "/cde/xxgf/cliniCal"
       }
     ]
   },
@@ -2401,6 +2466,14 @@
         "docs": "https://docs.rsshub.app/social-media.html#dou-yin",
         "source": "/user/:uid",
         "target": "/douyin/user/:uid"
+      }
+    ],
+    "live": [
+      {
+        "title": "直播间开播",
+        "docs": "https://docs.rsshub.app/live.html#dou-yin-zhi-bo",
+        "source": "/:rid",
+        "target": "/douyin/live/:rid"
       }
     ]
   },
@@ -4385,6 +4458,18 @@
           "/gz/weatherAlarm/otherCity/"
         ],
         "target": "/gov/guangdong/tqyb/sncsyjxh"
+      }
+    ]
+  },
+  "xz.gov.cn": {
+    "_name": "徐州市人民政府",
+    "hrss": [
+      {
+        "title": "徐州市人力资源和社会保障局",
+        "docs": "https://docs.rsshub.app/government.html#xu-zhou-shi-ren-min-zheng-fu-xu-zhou-shi-ren-li-zi-yuan-he-she-hui-bao-zhang-ju",
+        "source": [
+          "/*"
+        ]
       }
     ]
   },
@@ -7443,6 +7528,20 @@
       }
     ]
   },
+  "mindmeister.com": {
+    "_name": "MindMeister",
+    ".": [
+      {
+        "title": "分类",
+        "docs": "https://docs.rsshub.app/study.html#mindmeister",
+        "source": [
+          "/:language/mind-maps/:category",
+          "/:language/:category",
+          "/:category"
+        ]
+      }
+    ]
+  },
   "mingpao.com": {
     "_name": "明报",
     ".": [
@@ -8348,6 +8447,23 @@
       }
     ]
   },
+  "nyaa.si": {
+    "_name": "nyaa",
+    ".": [
+      {
+        "title": "搜索结果",
+        "docs": "https://docs.rsshub.app/multimedia.html#nyaa-sou-suo-jie-guo",
+        "source": "/"
+      }
+    ],
+    "sukebei": [
+      {
+        "title": "sukebei 搜索结果",
+        "docs": "https://docs.rsshub.app/multimedia.html#nyaa-sukebei-sou-suo-jie-guo",
+        "source": "/"
+      }
+    ]
+  },
   "nytimes.com": {
     "_name": "纽约时报",
     ".": [
@@ -9157,6 +9273,20 @@
       }
     ]
   },
+  "samsung.com": {
+    "_name": "Samsung",
+    "research": [
+      {
+        "title": "Research Blog",
+        "docs": "https://docs.rsshub.app/new-media.html#samsung-research-blog",
+        "source": [
+          "/blog",
+          "/"
+        ],
+        "target": "/samsung/research/blog"
+      }
+    ]
+  },
   "sciencenet.cn": {
     "_name": "科学网",
     "blog": [
@@ -9486,6 +9616,19 @@
           "/"
         ],
         "target": "/shopback/:store"
+      }
+    ]
+  },
+  "shuiguopai.com": {
+    "_name": "水果派",
+    ".": [
+      {
+        "title": "首页",
+        "docs": "https://docs.rsshub.app/new-media.html#shui-guo-pai-shou-ye",
+        "source": [
+          "/"
+        ],
+        "target": "/shuiguopai"
       }
     ]
   },
@@ -10739,6 +10882,21 @@
       }
     ]
   },
+  "u3c3.com": {
+    "_name": "u3c3",
+    ".": [
+      {
+        "title": "分类",
+        "docs": "https://docs.rsshub.app/multimedia.html#u3c3-fen-lei",
+        "source": "/"
+      },
+      {
+        "title": "关键词搜索",
+        "docs": "https://docs.rsshub.app/multimedia.html#u3c3-guan-jian-ci-sou-suo",
+        "source": "/"
+      }
+    ]
+  },
   "uibe.edu.cn": {
     "_name": "对外经济贸易大学",
     "hr": [
@@ -10979,6 +11137,17 @@
           "/categories/:category/:subcategory",
           "/categories/:category/:subcategory/videos"
         ]
+      }
+    ]
+  },
+  "vlive.tv": {
+    "_name": "V LIVE",
+    ".": [
+      {
+        "title": "Board",
+        "docs": "https://docs.rsshub.app/en/live.html#v-live",
+        "source": "/channel/:board/board/:board",
+        "target": "/vlive/channel/:board/board/:board"
       }
     ]
   },
@@ -11526,6 +11695,68 @@
       }
     ]
   },
+  "xjtu.edu.cn": {
+    "_name": "西安交通大学",
+    "2yuan": [
+      {
+        "title": "第二附属医院新闻",
+        "docs": "https://docs.rsshub.app/university.html#xi-an-jiao-tong-da-xue-di-er-fu-shu-yi-yuan-xin-wen",
+        "source": [
+          "/"
+        ]
+      }
+    ],
+    "dean": [
+      {
+        "title": "教务处",
+        "docs": "https://docs.rsshub.app/university.html#xi-an-jiao-tong-da-xue-jiao-wu-chu",
+        "source": [
+          "/"
+        ],
+        "target": "/xjtu/dean/:subpath+"
+      }
+    ],
+    "ee": [
+      {
+        "title": "电气学院",
+        "docs": "https://docs.rsshub.app/university.html#xi-an-jiao-tong-da-xue-dian-qi-xue-yuan",
+        "source": [
+          "/"
+        ],
+        "target": "/xjtu/ee/:id?"
+      }
+    ],
+    "gs": [
+      {
+        "title": "研究生院通知公告",
+        "docs": "https://docs.rsshub.app/university.html#xi-an-jiao-tong-da-xue-yan-jiu-sheng-xue-yuan-tong-zhi-gong-gao",
+        "source": [
+          "/"
+        ],
+        "target": "/xjtu/gs/tzgg"
+      }
+    ],
+    "international": [
+      {
+        "title": "国际处通知",
+        "docs": "https://docs.rsshub.app/university.html#xi-an-jiao-tong-da-xue-guo-ji-chu-tong-zhi",
+        "source": [
+          "/"
+        ],
+        "target": "/xjtu/international/:subpath+"
+      }
+    ],
+    "std": [
+      {
+        "title": "科技在线",
+        "docs": "https://docs.rsshub.app/university.html#xi-an-jiao-tong-da-xue-ke-ji-zai-xian",
+        "source": [
+          "/tzgg/:category",
+          "/"
+        ]
+      }
+    ]
+  },
   "xmanhua.com": {
     "_name": "X 漫画",
     ".": [
@@ -11578,6 +11809,14 @@
           "/u/:id"
         ],
         "target": "/xueqiu/user_stock/:id"
+      },
+      {
+        "title": "用户专栏",
+        "docs": "https://docs.rsshub.app/finance.html#xue-qiu",
+        "source": [
+          "/:id/column"
+        ],
+        "target": "/xueqiu/column/:id"
       },
       {
         "title": "组合最新调仓信息",
@@ -11918,6 +12157,19 @@
           "/news/world"
         ],
         "target": "/zaobao/znews/world"
+      }
+    ]
+  },
+  "zhangyoubao.com": {
+    "_name": "掌游宝",
+    "mobile": [
+      {
+        "title": "推荐",
+        "docs": "https://docs.rsshub.app/game.html#zhang-you-bao-tui-jian",
+        "source": [
+          "/:category/"
+        ],
+        "target": "/zhangyoubao/:category"
       }
     ]
   },

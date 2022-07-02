@@ -126,6 +126,9 @@
     "/agirls/:category?": [
         "TonyRL"
     ],
+    "/agora0/:category?": [
+        "nczitzk"
+    ],
     "/ahjzu/news": [
         "Yuk-0v0"
     ],
@@ -159,6 +162,9 @@
     ],
     "/appledaily/:channel?": [
         "Fatpandac"
+    ],
+    "/appleinsider/:category?": [
+        "nczitzk"
     ],
     "/appstore/update/:country/:id": [
         "HenryQW"
@@ -322,6 +328,9 @@
     "/cbirc/:category?": [
         "JkCheung"
     ],
+    "/cbnweek/": [
+        "nczitzk"
+    ],
     "/ccac/news/:type/:lang?": [
         "linbuxiao"
     ],
@@ -344,6 +353,9 @@
     "/cctv/:category": [
         "idealclover",
         "xyqfer"
+    ],
+    "/cde/xxgk/:category": [
+        "TonyRL"
     ],
     "/cde/:channel/:category": [
         "Fatpandac"
@@ -607,6 +619,12 @@
     ],
     "/douban/topic/:id/:sort?": [
         "LogicJake"
+    ],
+    "/douyin/hashtag/:cid/:routeParams?": [
+        "TonyRL"
+    ],
+    "/douyin/live/:rid": [
+        "TonyRL"
     ],
     "/douyin/user/:uid/:routeParams?": [
         "Max-Tortoise",
@@ -1017,6 +1035,9 @@
     ],
     "/gov/sichuan/deyang/govpulicinfo/:countyName": [
         "zytomorrow"
+    ],
+    "/gov/xuzhou/hrss/:category?": [
+        "nczitzk"
     ],
     "/guancha/:category?": [
         "nczitzk",
@@ -1624,6 +1645,9 @@
     "/mihoyo/bbs/official/:gids/:type?/:page_size?/:last_id?": [
         "CaoMeiYouRen"
     ],
+    "/mindmeister/:category?/:language?": [
+        "TonyRL"
+    ],
     "/mingpao/:type?/:category?": [
         "TonyRL"
     ],
@@ -1861,6 +1885,14 @@
         "junfengP",
         "Seiry"
     ],
+    "/nyaa/search/:query?": [
+        "Lava-Swimmer",
+        "noname1897"
+    ],
+    "/nyaa/subekei/search/:query?": [
+        "Lava-Swimmer",
+        "noname1897"
+    ],
     "/nytimes/author/:byline": [
         "kevinschaul"
     ],
@@ -2024,6 +2056,12 @@
     "/qq/ac/rank/:type?/:time?": [
         "nczitzk"
     ],
+    "/qq/kg/:userId": [
+        "zhangxiang012"
+    ],
+    "/qq/kg/reply/:playId": [
+        "zhangxiang012"
+    ],
     "/qq/live/:id": [
         "nczitzk"
     ],
@@ -2104,6 +2142,9 @@
     "/ruc/hr/:category?": [
         "nczitzk"
     ],
+    "/samsung/research/blog": [
+        "nczitzk"
+    ],
     "/sciencedirect/journal/:id": [
         "nczitzk"
     ],
@@ -2160,6 +2201,9 @@
         "h2ws"
     ],
     "/shopback/:store": [
+        "nczitzk"
+    ],
+    "/shuiguopai/": [
         "nczitzk"
     ],
     "/sicau/dky/:category?": [
@@ -2453,6 +2497,9 @@
     "/txrjy/fornumtopic/:channel?": [
         "Fatpandac"
     ],
+    "/u3c3/:type?/:keyword?": [
+        "noname1897"
+    ],
     "/ucas/job/:type?": [
         "Fatpandac"
     ],
@@ -2560,6 +2607,9 @@
     ],
     "/verfghbw/press/:keyword?": [
         "quinn-dev"
+    ],
+    "/vlive/channel/:channel/board/:board": [
+        "TonyRL"
     ],
     "/wallhaven/search/:filter?/:needDetails?": [
         "nczitzk",
@@ -2713,6 +2763,30 @@
     "/xidian/jwc/:category?": [
         "ShadowySpirits"
     ],
+    "/xjtu/2yuan/news/:id?": [
+        "nczitzk"
+    ],
+    "/xjtu/dean/:subpath+": [
+        "hoilc"
+    ],
+    "/xjtu/ee/:id?": [
+        "DylanXie123"
+    ],
+    "/xjtu/gs/tzgg": [
+        "nczitzk"
+    ],
+    "/xjtu/international/:subpath+": [
+        "guitaoliu"
+    ],
+    "/xjtu/job/:subpath?": [
+        "DylanXie123"
+    ],
+    "/xjtu/std/:category?": [
+        "nczitzk"
+    ],
+    "/xueqiu/column/:id": [
+        "TonyRL"
+    ],
     "/xueqiu/favorite/:id": [
         "imlonghao"
     ],
@@ -2801,6 +2875,9 @@
     ],
     "/zaobao/:type/:section": [
         "shunf4"
+    ],
+    "/zhangyoubao/:category": [
+        "ztmzzz"
     ],
     "/zhibo8/forum/:id": [
         "LogicJake"
@@ -3757,7 +3834,6 @@
     "/chinatimes/:caty": [],
     "/transferwise/pair/:source/:target": [],
     "/chocolatey/software/:name?": [],
-    "/nyaa/search/:query?": [],
     "/bahamut/creation/:author/:category?": [],
     "/bahamut/creation_index/:category?/:subcategory?/:type?": [],
     "/centbrowser/history": [],
@@ -3853,11 +3929,6 @@
     "/wolley": [],
     "/wolley/user/:id": [],
     "/wolley/host/:host": [],
-    "/xjtu/gs/tzgg": [],
-    "/xjtu/dean/:subpath+": [],
-    "/xjtu/international/:subpath+": [],
-    "/xjtu/job/:subpath?": [],
-    "/xjtu/ee/:id?": [],
     "/booksource": [],
     "/ku/:name?": [],
     "/blogs/hedwig/:type": [],
