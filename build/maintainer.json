@@ -149,6 +149,9 @@
     "/ahjzu/news": [
         "Yuk-0v0"
     ],
+    "/airchina/announcement": [
+        "LandonLi"
+    ],
     "/ajmide/:id": [
         "Fatpandac"
     ],
@@ -363,6 +366,9 @@
     "/ccac/news/:type/:lang?": [
         "linbuxiao"
     ],
+    "/ccfcv/:channel/:category": [
+        "elxy"
+    ],
     "/ccreports/article": [
         "EsuRt",
         "Fatpandac"
@@ -443,6 +449,9 @@
     ],
     "/ciidbnu/:id?": [
         "nczitzk"
+    ],
+    "/clash/premium": [
+        "ttttmr"
     ],
     "/cn-healthcare/index": [
         "qnloft"
@@ -906,6 +915,9 @@
     "/gcores/tag/:tag/:category?": [
         "StevenRCE0"
     ],
+    "/gdut/oa_news/:type?": [
+        "Jim Kirisame"
+    ],
     "/getdr/": [
         "nczitzk"
     ],
@@ -963,7 +975,8 @@
         "queensferryme"
     ],
     "/github/trending/:since/:language?/:spoken_language?": [
-        "DIYgod"
+        "DIYgod",
+        "jameschensmith"
     ],
     "/github/user/followers/:user": [
         "HenryQW"
@@ -1035,6 +1048,9 @@
     ],
     "/gov/moj/aac/news/:type?": [
         "TonyRL"
+    ],
+    "/gov/nifdc/:path+": [
+        "nczitzk"
     ],
     "/gov/nmpa/:path+": [
         "TonyRL"
@@ -1225,23 +1241,28 @@
     ],
     "/hk01/channel/:id": [
         "hoilc",
-        "Fatpandac"
+        "Fatpandac",
+        "nczitzk"
     ],
     "/hk01/hot": [
         "hoilc",
-        "Fatpandac"
+        "Fatpandac",
+        "nczitzk"
     ],
     "/hk01/issue/:id": [
         "hoilc",
-        "Fatpandac"
+        "Fatpandac",
+        "nczitzk"
     ],
     "/hk01/tag/:id": [
         "hoilc",
-        "Fatpandac"
+        "Fatpandac",
+        "nczitzk"
     ],
     "/hk01/zone/:id": [
         "hoilc",
-        "Fatpandac"
+        "Fatpandac",
+        "nczitzk"
     ],
     "/hkej/:category?": [
         "TonyRL"
@@ -1276,10 +1297,16 @@
     "/hotukdeals/:type": [
         "DIYgod"
     ],
-    "/houxu/lives/:id?": [
+    "/houxu/events": [
         "nczitzk"
     ],
-    "/houxu/:category?": [
+    "/houxu/lives/:id": [
+        "nczitzk"
+    ],
+    "/houxu/memory": [
+        "nczitzk"
+    ],
+    "/houxu/": [
         "nczitzk"
     ],
     "/huangz/": [
@@ -1760,6 +1787,12 @@
     "/mydrivers/:type?/:id?": [
         "nczitzk"
     ],
+    "/myfigurecollection/activity/:category?/:language?/:latestAdditions?/:latestEdits?/:latestAlerts?/:latestPictures?": [
+        "nczitzk"
+    ],
+    "/myfigurecollection/:category?/:language?": [
+        "nczitzk"
+    ],
     "/mygopen/:label?": [
         "nczitzk"
     ],
@@ -1805,6 +1838,9 @@
     "/nbd/:id?": [
         "nczitzk"
     ],
+    "/ncepu/master/:type": [
+        "nilleo"
+    ],
     "/ncwu/note": [
         "vuhe"
     ],
@@ -1834,6 +1870,13 @@
     ],
     "/newsmarket/:category?": [
         "nczitzk"
+    ],
+    "/nga/forum/:fid/:recommend?": [
+        "xyqfer"
+    ],
+    "/nga/post/:tid/:authorId?": [
+        "xyqfer",
+        "syrinka"
     ],
     "/ngocn2/:category?": [
         "nczitzk"
@@ -2115,7 +2158,25 @@
         "miaoyafeng",
         "Fatpandac"
     ],
+    "/pts/category/:id": [
+        "nczitzk"
+    ],
+    "/pts/curations": [
+        "nczitzk"
+    ],
     "/pts/dailynews": [
+        "nczitzk"
+    ],
+    "/pts/opinion": [
+        "nczitzk"
+    ],
+    "/pts/projects": [
+        "nczitzk"
+    ],
+    "/pts/report": [
+        "nczitzk"
+    ],
+    "/pts/tag/:id": [
         "nczitzk"
     ],
     "/pubmed/trending/:filters?": [
@@ -2575,6 +2636,19 @@
     "/tisi/latest": [
         "Fatpandac"
     ],
+    "/tju/cic/:type?": [
+        "SuperPung"
+    ],
+    "/tju/news/:type?": [
+        "SuperPung"
+    ],
+    "/tju/oaa/:type?": [
+        "AmosChenYQ",
+        "SuperPung"
+    ],
+    "/tju/yzb/:type?": [
+        "SuperPung"
+    ],
     "/tokeninsight/blog/:lang?": [
         "fuergaosi233"
     ],
@@ -2589,6 +2663,9 @@
     ],
     "/trending/:keywords/:numberOfDays?": [
         "Jkker"
+    ],
+    "/tribalfootball/": [
+        "Rongronggg9"
     ],
     "/trow/portal": [
         "shiningdracon"
@@ -3309,7 +3386,6 @@
     "/scnu/jw": [],
     "/scnu/library": [],
     "/scnu/cs/match": [],
-    "/gdut/news": [],
     "/cas/sim/academic": [],
     "/cas/mesalab/kb": [],
     "/cas/iee/kydt": [],
@@ -3386,7 +3462,6 @@
     "/scut/jwc/news": [],
     "/wzbc/:type?": [],
     "/henu/:type?": [],
-    "/tjpyu/ooa/:type?": [],
     "/nku/jwc/:type?": [],
     "/buaa/news/:type": [],
     "/zjut/:type": [],
@@ -3497,8 +3572,6 @@
     "/coolbuy/newest": [],
     "/miniflux/subscription/:parameters?": [],
     "/miniflux/:feeds/:parameters?": [],
-    "/nga/forum/:fid/:recommend?": [],
-    "/nga/post/:tid": [],
     "/nautilus/topic/:tid": [],
     "/anigamer/new_anime": [],
     "/anigamer/anime/:sn": [],
