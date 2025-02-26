@@ -3110,6 +3110,76 @@
     "url": "www.4gamers.com.tw",
     "lang": "zh-TW"
   },
+  "4khd": {
+    "routes": {
+      "/category/:category": {
+        "path": "/category/:category",
+        "categories": [
+          "picture"
+        ],
+        "example": "/4khd/category/cosplay",
+        "parameters": {
+          "category": "Category"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.4khd.com/pages/:category"
+            ],
+            "target": "/category/:category"
+          }
+        ],
+        "name": "Category",
+        "maintainers": [
+          "AiraNadih"
+        ],
+        "url": "www.4khd.com/",
+        "location": "category.ts"
+      },
+      "/": {
+        "path": "/",
+        "categories": [
+          "picture"
+        ],
+        "example": "/4khd",
+        "parameters": {},
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.4khd.com/"
+            ],
+            "target": ""
+          }
+        ],
+        "name": "Latest",
+        "maintainers": [
+          "AiraNadih"
+        ],
+        "url": "www.4khd.com/",
+        "location": "latest.ts"
+      }
+    },
+    "name": "4KHD",
+    "url": "www.4khd.net",
+    "description": "4KHD - HD Beautiful Girls",
+    "lang": "en"
+  },
   "4ksj": {
     "routes": {
       "/:id?": {
@@ -3588,8 +3658,19 @@
   },
   "6park": {
     "routes": {
-      "/:id?/:type?/:keyword?": {
-        "path": "/:id?/:type?/:keyword?",
+      "/index/:id?/:type?/:keyword?": {
+        "path": "/index/:id?/:type?/:keyword?",
+        "name": "首页",
+        "maintainers": [
+          "nczitzk",
+          "cscnk52"
+        ],
+        "example": "/6park/index",
+        "parameters": {
+          "id": "分站，见下表，默认为史海钩沉",
+          "type": "类型，可选值为 gold、type，默认为空",
+          "keyword": "关键词，可选，默认为空"
+        },
         "radar": [
           {
             "source": [
@@ -3599,8 +3680,7 @@
             "target": "/:id?"
           }
         ],
-        "name": "Unknown",
-        "maintainers": [],
+        "description": "| 婚姻家庭 | 魅力时尚 | 女性频道 | 生活百态 | 美食厨房 | 非常影音 | 车迷沙龙 | 游戏天地 | 卡通漫画 | 体坛纵横 | 运动健身 | 电脑前线 | 数码家电 | 旅游风向 | 摄影部落 | 奇珍异宝 | 笑口常开 | 娱乐八卦 | 吃喝玩乐 | 文化长廊 | 军事纵横 | 百家论坛 | 科技频道 | 爱子情怀 | 健康人生 | 博论天下 | 史海钩沉 | 网际谈兵 | 经济观察 | 谈股论金 | 杂论闲侃 | 唯美乐园 | 学习园地 | 命理玄机 | 宠物情缘 | 网络歌坛 | 音乐殿堂 | 情感世界 |\n|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|\n| life9    | life1    | chan10   | life2    | life6    | fr       | enter7   | enter3   | enter6   | enter5   | sport    | know1    | chan6    | life7    | chan8    | page     | enter1   | enter8   | netstar  | life10   | nz       | other    | chan2    | chan5    | life5    | bolun    | chan1    | military | finance  | chan4    | pk       | gz1      | gz2      | gz3      | life8    | chan7    | enter4   | life3    |",
         "location": "index.ts"
       },
       "/news/:site?/:id?/:keyword?": {
@@ -3614,8 +3694,17 @@
             "target": "/:id?"
           }
         ],
-        "name": "Unknown",
-        "maintainers": [],
+        "name": "新闻栏目",
+        "maintainers": [
+          "nczitzk",
+          "cscnk52"
+        ],
+        "parameters": {
+          "site": "分站，可选newspark、local，默认为 newspark",
+          "id": "栏目 id，可选，默认为空",
+          "keyword": "关键词，可选，默认为空"
+        },
+        "description": "::: tip 提示\n若订阅 [时政](https://www.6parknews.com/newspark/index.php?type=1)，其网址为 <https://www.6parknews.com/newspark/index.php?type=1>，其中 `newspark` 为分站，`1` 为栏目 id。\n若订阅 [美国](https://local.6parknews.com/index.php?type_id=1)，其网址为 <https://local.6parknews.com/index.php?type_id=1>，其中 `local` 为分站，`1` 为栏目 id。\n:::",
         "location": "news.ts"
       }
     },
@@ -14025,6 +14114,32 @@
   },
   "bsky": {
     "routes": {
+      "/profile/:handle/feed/:space/:routeParams?": {
+        "path": "/profile/:handle/feed/:space/:routeParams?",
+        "categories": [
+          "social-media",
+          "popular"
+        ],
+        "view": 1,
+        "example": "/bsky.app/profile/jaz.bsky.social/feed/cv:cat",
+        "parameters": {
+          "handle": "User handle, can be found in URL",
+          "space": "Space ID, can be found in URL"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "Feeds",
+        "maintainers": [
+          "FerrisChi"
+        ],
+        "location": "feeds.ts"
+      },
       "/keyword/:keyword": {
         "path": "/keyword/:keyword",
         "categories": [
@@ -14300,6 +14415,135 @@
     },
     "name": "北京航空航天大学",
     "url": "news.buaa.edu.cn",
+    "lang": "zh-CN"
+  },
+  "buct": {
+    "routes": {
+      "/cist": {
+        "path": "/cist",
+        "categories": [
+          "university"
+        ],
+        "example": "/buct/cist",
+        "parameters": {},
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "cist.buct.edu.cn/xygg/list.htm",
+              "cist.buct.edu.cn/xygg/main.htm"
+            ],
+            "target": "/cist"
+          }
+        ],
+        "name": "信息学院",
+        "maintainers": [
+          "Epic-Creeper"
+        ],
+        "url": "buct.edu.cn/",
+        "location": "cist.ts"
+      },
+      "/gr/:type": {
+        "path": "/gr/:type",
+        "categories": [
+          "university"
+        ],
+        "example": "/buct/gr/jzml",
+        "parameters": {
+          "type": {
+            "description": "信息类型，可选值：tzgg（通知公告），jzml（简章目录），xgzc（相关政策）",
+            "options": [
+              {
+                "value": "tzgg",
+                "label": "通知公告"
+              },
+              {
+                "value": "jzml",
+                "label": "简章目录"
+              },
+              {
+                "value": "xgzc",
+                "label": "相关政策"
+              }
+            ]
+          }
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "graduate.buct.edu.cn/1392/list.htm"
+            ],
+            "target": "/gr/tzgg"
+          },
+          {
+            "source": [
+              "graduate.buct.edu.cn/jzml/list.htm"
+            ],
+            "target": "/gr/jzml"
+          },
+          {
+            "source": [
+              "graduate.buct.edu.cn/1393/list.htm"
+            ],
+            "target": "/gr/xgzc"
+          }
+        ],
+        "name": "研究生院",
+        "maintainers": [
+          "Epic-Creeper"
+        ],
+        "url": "buct.edu.cn/",
+        "location": "gr.ts"
+      },
+      "/jwc": {
+        "path": "/jwc",
+        "categories": [
+          "university"
+        ],
+        "example": "/buct/jwc",
+        "parameters": {},
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "jiaowuchu.buct.edu.cn/610/list.htm",
+              "jiaowuchu.buct.edu.cn/611/main.htm"
+            ],
+            "target": "/jwc"
+          }
+        ],
+        "name": "教务处",
+        "maintainers": [
+          "Epic-Creeper"
+        ],
+        "url": "buct.edu.cn/",
+        "location": "jwc.ts"
+      }
+    },
+    "name": "北京化工大学",
+    "url": "buct.edu.cn",
     "lang": "zh-CN"
   },
   "bugzilla": {
@@ -19745,6 +19989,34 @@
     "url": "lock.cmpxchg8b.com",
     "lang": "en"
   },
+  "cmu": {
+    "routes": {
+      "/andypavlo/blog": {
+        "path": "/andypavlo/blog",
+        "categories": [
+          "blog"
+        ],
+        "example": "/cmu/andypavlo/blog",
+        "parameters": {},
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "Andy Pavlo Blog",
+        "maintainers": [
+          "mocusez"
+        ],
+        "location": "andypavlo/blog.ts"
+      }
+    },
+    "name": "Carnegie Mellon University",
+    "url": "www.cmu.edu",
+    "lang": "en"
+  },
   "cn-healthcare": {
     "routes": {
       "/index": {
@@ -19987,7 +20259,7 @@
         "maintainers": [
           "hujingnb"
         ],
-        "url": "www.cnblogs.com/aggsite/headline",
+        "url": "www.cnblogs.com/pick",
         "description": "在博客园主页的分类出可查看所有类型。例如，go 的分类地址为: `https://www.cnblogs.com/cate/go/`, 则: [`/cnblogs/cate/go`](https://rsshub.app/cnblogs/cate/go)",
         "location": "common.ts"
       },
@@ -20023,7 +20295,7 @@
         "maintainers": [
           "hujingnb"
         ],
-        "url": "www.cnblogs.com/aggsite/headline",
+        "url": "www.cnblogs.com/pick",
         "description": "在博客园主页的分类出可查看所有类型。例如，go 的分类地址为: `https://www.cnblogs.com/cate/go/`, 则: [`/cnblogs/cate/go`](https://rsshub.app/cnblogs/cate/go)",
         "location": "common.ts"
       },
@@ -20059,7 +20331,7 @@
         "maintainers": [
           "hujingnb"
         ],
-        "url": "www.cnblogs.com/aggsite/headline",
+        "url": "www.cnblogs.com/pick",
         "description": "在博客园主页的分类出可查看所有类型。例如，go 的分类地址为: `https://www.cnblogs.com/cate/go/`, 则: [`/cnblogs/cate/go`](https://rsshub.app/cnblogs/cate/go)",
         "location": "common.ts"
       },
@@ -20095,7 +20367,7 @@
         "maintainers": [
           "hujingnb"
         ],
-        "url": "www.cnblogs.com/aggsite/headline",
+        "url": "www.cnblogs.com/pick",
         "description": "在博客园主页的分类出可查看所有类型。例如，go 的分类地址为: `https://www.cnblogs.com/cate/go/`, 则: [`/cnblogs/cate/go`](https://rsshub.app/cnblogs/cate/go)",
         "location": "common.ts"
       },
@@ -20131,7 +20403,7 @@
         "maintainers": [
           "hujingnb"
         ],
-        "url": "www.cnblogs.com/aggsite/headline",
+        "url": "www.cnblogs.com/pick",
         "description": "在博客园主页的分类出可查看所有类型。例如，go 的分类地址为: `https://www.cnblogs.com/cate/go/`, 则: [`/cnblogs/cate/go`](https://rsshub.app/cnblogs/cate/go)",
         "location": "common.ts"
       }
@@ -21152,14 +21424,15 @@
   },
   "coomer": {
     "routes": {
-      "/artist/:id": {
-        "path": "/artist/:id",
+      "/:source?/:id?": {
+        "path": "/:source?/:id?",
         "categories": [
           "multimedia"
         ],
-        "example": "/coomer/artist/belledelphine",
+        "example": "/coomer",
         "parameters": {
-          "id": "Artist id, can be found in URL"
+          "source": "Source, see below, Posts by default",
+          "id": "User id, can be found in URL"
         },
         "features": {
           "requireConfig": false,
@@ -21172,46 +21445,18 @@
         "radar": [
           {
             "source": [
-              "coomer.su/onlyfans/user/:id",
+              "coomer.su/:source/user/:id",
               "coomer.su/"
             ]
           }
         ],
-        "name": "Artist",
+        "name": "Posts",
         "maintainers": [
-          "nczitzk"
+          "nczitzk",
+          "AiraNadih"
         ],
-        "location": "artist.ts"
-      },
-      "/posts": {
-        "path": "/posts",
-        "categories": [
-          "multimedia"
-        ],
-        "example": "/coomer/posts",
-        "parameters": {},
-        "features": {
-          "requireConfig": false,
-          "requirePuppeteer": false,
-          "antiCrawler": false,
-          "supportBT": false,
-          "supportPodcast": false,
-          "supportScihub": false
-        },
-        "radar": [
-          {
-            "source": [
-              "coomer.su/posts",
-              "coomer.su/"
-            ]
-          }
-        ],
-        "name": "Recent Posts",
-        "maintainers": [
-          "nczitzk"
-        ],
-        "url": "coomer.su/posts",
-        "location": "posts.ts"
+        "description": "Sources\n\n| Posts | OnlyFans | Fansly | CandFans |\n| ----- | -------- | ------- | -------- |\n| posts | onlyfans | fansly   | candfans |\n\n::: tip\n  When `posts` is selected as the value of the parameter **source**, the parameter **id** does not take effect.\n  There is an optinal parameter **limit** which controls the number of posts to fetch, default value is 25.\n:::",
+        "location": "index.ts"
       }
     },
     "name": "Coomer",
@@ -22400,7 +22645,8 @@
         "name": "分类",
         "url": "cuilingmag.com",
         "categories": [
-          "new-media"
+          "new-media",
+          "popular"
         ],
         "maintainers": [
           "nczitzk"
@@ -22549,23 +22795,34 @@
     "routes": {
       "/changelog": {
         "path": "/changelog",
+        "name": "Changelog",
+        "url": "www.cursor.com",
+        "maintainers": [
+          "p3psi-boo",
+          "nczitzk"
+        ],
+        "example": "/cursor/changelog",
         "categories": [
           "program-update"
         ],
-        "example": "/cursor/changelog",
-        "url": "www.cursor.com/changelog",
-        "name": "Changelog",
-        "maintainers": [
-          "p3psi-boo"
-        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
         "radar": [
           {
             "source": [
               "www.cursor.com/changelog"
             ],
-            "target": "/cursor/changelog"
+            "target": "/changelog"
           }
         ],
+        "view": 0,
         "location": "changelog.ts"
       }
     },
@@ -32851,20 +33108,55 @@
         "view": 0,
         "location": "articles.ts"
       },
-      "/category/:category": {
-        "path": "/category/:category",
-        "categories": [
-          "new-media",
-          "popular"
+      "/categories/:id/:tab?": {
+        "path": "/categories/:id/:tab?",
+        "name": "分类",
+        "url": "www.gcores.com",
+        "maintainers": [
+          "MoguCloud",
+          "StevenRCE0",
+          "nczitzk"
         ],
-        "example": "/gcores/category/news",
+        "example": "/gcores/categories/1/articles",
         "parameters": {
-          "category": "分类名"
+          "id": {
+            "description": "分类 ID，可在对应分类页 URL 中找到"
+          },
+          "tab": {
+            "description": "类型，默认为空，即全部，可在对应分类页 URL 中找到",
+            "options": [
+              {
+                "label": "全部",
+                "value": ""
+              },
+              {
+                "label": "播客",
+                "value": "radios"
+              },
+              {
+                "label": "文章",
+                "value": "articles"
+              },
+              {
+                "label": "资讯",
+                "value": "news"
+              },
+              {
+                "label": "视频",
+                "value": "videos"
+              }
+            ]
+          }
         },
+        "description": ":::tip\n若订阅 [文章 - 文章](https://www.gcores.com/categories/1?tab=articles)，网址为 `https://www.gcores.com/categories/1?tab=articles`，请截取 `https://www.gcores.com/categories/` 到末尾的部分 `1` 作为 `id` 参数填入，截取 `articles` 作为 `tab` 参数填入，此时目标路由为 [`/gcores/categories/1/articles`](https://rsshub.app/gcores/categories/1/articles)。\n:::\n\n| 全部 | 播客   | 文章     | 资讯 | 视频   |\n| ---- | ------ | -------- | ---- | ------ |\n|      | radios | articles | news | videos |\n",
+        "categories": [
+          "game"
+        ],
         "features": {
           "requireConfig": false,
           "requirePuppeteer": false,
           "antiCrawler": false,
+          "supportRadar": true,
           "supportBT": false,
           "supportPodcast": false,
           "supportScihub": false
@@ -32872,32 +33164,96 @@
         "radar": [
           {
             "source": [
-              "gcores.com/:category"
+              "www.gcores.com/categories/:id"
             ]
+          },
+          {
+            "title": "全部",
+            "source": [
+              "www.gcores.com/categories/:id"
+            ],
+            "target": "/gcores/categories/:id"
+          },
+          {
+            "title": "播客",
+            "source": [
+              "www.gcores.com/categories/:id"
+            ],
+            "target": "/categories/:id/radios"
+          },
+          {
+            "title": "文章",
+            "source": [
+              "www.gcores.com/categories/:id"
+            ],
+            "target": "/categories/:id/articles"
+          },
+          {
+            "title": "资讯",
+            "source": [
+              "www.gcores.com/categories/:id"
+            ],
+            "target": "/categories/:id/news"
+          },
+          {
+            "title": "视频",
+            "source": [
+              "www.gcores.com/categories/:id"
+            ],
+            "target": "/categories/:id/videos"
           }
         ],
-        "name": "分类",
-        "maintainers": [
-          "MoguCloud",
-          "StevenRCE0"
-        ],
-        "description": "| 资讯 | 视频   | 电台   | 文章     |\n| ---- | ------ | ------ | -------- |\n| news | videos | radios | articles |",
-        "location": "category.ts"
+        "view": 0,
+        "location": "categories.ts"
       },
-      "/collections/:collection": {
-        "path": "/collections/:collection",
-        "categories": [
-          "new-media",
-          "popular"
+      "/collections/:id/:tab?": {
+        "path": "/collections/:id/:tab?",
+        "name": "专题",
+        "url": "www.gcores.com",
+        "maintainers": [
+          "kudryavka1013",
+          "nczitzk"
         ],
-        "example": "/gcores/collections/64",
+        "example": "/gcores/collections/64/articles",
         "parameters": {
-          "collection": "专题id，可在专题页面的 URL 中找到，如 游戏开发设计心得分享 -- 64"
+          "id": {
+            "description": "专题 ID，可在对应专题页 URL 中找到"
+          },
+          "tab": {
+            "description": "类型，默认为空，即全部，可在对应专题页 URL 中找到",
+            "options": [
+              {
+                "label": "全部",
+                "value": ""
+              },
+              {
+                "label": "播客",
+                "value": "radios"
+              },
+              {
+                "label": "文章",
+                "value": "articles"
+              },
+              {
+                "label": "资讯",
+                "value": "news"
+              },
+              {
+                "label": "视频",
+                "value": "videos"
+              }
+            ]
+          }
         },
+        "description": ":::tip\n若订阅 [文章 - 文章](https://www.gcores.com/collections/64?tab=articles)，网址为 `https://www.gcores.com/collections/64?tab=articles`，请截取 `https://www.gcores.com/collections/` 到末尾的部分 `64` 作为 `id` 参数填入，截取 `articles` 作为 `tab` 参数填入，此时目标路由为 [`/gcores/collections/64/articles`](https://rsshub.app/gcores/collections/64/articles)。\n:::\n\n| 全部 | 播客   | 文章     | 资讯 | 视频   |\n| ---- | ------ | -------- | ---- | ------ |\n|      | radios | articles | news | videos |\n",
+        "categories": [
+          "game"
+        ],
         "features": {
           "requireConfig": false,
           "requirePuppeteer": false,
-          "antiCrawler": true,
+          "antiCrawler": false,
+          "supportRadar": true,
           "supportBT": false,
           "supportPodcast": false,
           "supportScihub": false
@@ -32905,15 +33261,47 @@
         "radar": [
           {
             "source": [
-              "gcores.com/collections/:collection"
+              "www.gcores.com/collections/:id"
             ]
+          },
+          {
+            "title": "全部",
+            "source": [
+              "www.gcores.com/collections/:id"
+            ],
+            "target": "/collections/:id"
+          },
+          {
+            "title": "播客",
+            "source": [
+              "www.gcores.com/collections/:id"
+            ],
+            "target": "/collections/:id/radios"
+          },
+          {
+            "title": "文章",
+            "source": [
+              "www.gcores.com/collections/:id"
+            ],
+            "target": "/collections/:id/articles"
+          },
+          {
+            "title": "资讯",
+            "source": [
+              "www.gcores.com/collections/:id"
+            ],
+            "target": "/collections/:id/news"
+          },
+          {
+            "title": "视频",
+            "source": [
+              "www.gcores.com/collections/:id"
+            ],
+            "target": "/collections/:id/videos"
           }
         ],
-        "name": "专题文章",
-        "maintainers": [
-          "kudryavka1013"
-        ],
-        "location": "collection.ts"
+        "view": 0,
+        "location": "collections.ts"
       },
       "/news": {
         "path": "/news",
@@ -32979,21 +33367,54 @@
         "url": "gcores.com/radios",
         "location": "radio.ts"
       },
-      "/tag/:tag/:category?": {
-        "path": "/tag/:tag/:category?",
-        "categories": [
-          "new-media",
-          "popular"
+      "/tags/:id/:tab?": {
+        "path": "/tags/:id/:tab?",
+        "name": "标签",
+        "url": "www.gcores.com",
+        "maintainers": [
+          "StevenRCE0",
+          "nczitzk"
         ],
-        "example": "/gcores/tag/42/articles",
+        "example": "/gcores/tags/1/articles",
         "parameters": {
-          "tag": "标签名，可在选定标签分类页面的 URL 中找到，如视觉动物——42",
-          "category": "分类名"
+          "id": {
+            "description": "标签 ID，可在对应标签页 URL 中找到"
+          },
+          "tab": {
+            "description": "类型，默认为空，即全部，可在对应标签页 URL 中找到",
+            "options": [
+              {
+                "label": "全部",
+                "value": ""
+              },
+              {
+                "label": "播客",
+                "value": "radios"
+              },
+              {
+                "label": "文章",
+                "value": "articles"
+              },
+              {
+                "label": "资讯",
+                "value": "news"
+              },
+              {
+                "label": "视频",
+                "value": "videos"
+              }
+            ]
+          }
         },
+        "description": ":::tip\n若订阅 [美国 - 文章](https://www.gcores.com/tags/1/originals?tab=articles)，网址为 `https://www.gcores.com/tags/1/originals?tab=articles`，请截取 `https://www.gcores.com/tags/` 到末尾 `/originals` 的部分 `1` 作为 `id` 参数填入，截取 `articles` 作为 `tab` 参数填入，此时目标路由为 [`/gcores/tags/1/articles`](https://rsshub.app/gcores/tags/1/articles)。\n:::\n\n| 全部 | 播客   | 文章     | 资讯 | 视频   |\n| ---- | ------ | -------- | ---- | ------ |\n|      | radios | articles | news | videos |\n",
+        "categories": [
+          "game"
+        ],
         "features": {
           "requireConfig": false,
           "requirePuppeteer": false,
           "antiCrawler": false,
+          "supportRadar": true,
           "supportBT": false,
           "supportPodcast": false,
           "supportScihub": false
@@ -33001,18 +33422,78 @@
         "radar": [
           {
             "source": [
-              "gcores.com/categories/:tag",
-              "gcores.com/"
+              "www.gcores.com/tags/:id/originals"
+            ]
+          },
+          {
+            "title": "全部",
+            "source": [
+              "www.gcores.com/tags/:id/originals"
             ],
-            "target": "/tag/:tag"
+            "target": "/gcores/tags/:id"
+          },
+          {
+            "title": "播客",
+            "source": [
+              "www.gcores.com/tags/:id/originals"
+            ],
+            "target": "/gcores/tags/:id/radios"
+          },
+          {
+            "title": "文章",
+            "source": [
+              "www.gcores.com/tags/:id/originals"
+            ],
+            "target": "/gcores/tags/:id/articles"
+          },
+          {
+            "title": "资讯",
+            "source": [
+              "www.gcores.com/tags/:id/originals"
+            ],
+            "target": "/gcores/tags/:id/news"
+          },
+          {
+            "title": "视频",
+            "source": [
+              "www.gcores.com/tags/:id/originals"
+            ],
+            "target": "/gcores/tags/:id/videos"
           }
         ],
-        "name": "标签",
+        "view": 0,
+        "location": "tags.ts"
+      },
+      "/videos": {
+        "path": "/videos",
+        "name": "视频",
+        "url": "www.gcores.com",
         "maintainers": [
-          "StevenRCE0"
+          "nczitzk"
         ],
-        "description": "分类名同上。",
-        "location": "tag.ts"
+        "example": "/gcores/videos",
+        "categories": [
+          "game"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.gcores.com/videos"
+            ],
+            "target": "/gcores/videos"
+          }
+        ],
+        "view": 3,
+        "location": "videos.ts"
       }
     },
     "name": "机核网",
@@ -37337,6 +37818,99 @@
         "maintainers": [],
         "location": "mmht/mmht.ts"
       },
+      "/moa/gjs/:category{.+}?": {
+        "path": "/moa/gjs/:category{.+}?",
+        "name": "中华人民共和国农业农村部国际合作司",
+        "url": "www.gjs.moa.gov.cn",
+        "maintainers": [
+          "nczitzk"
+        ],
+        "example": "/gov/moa/gjs/gzdt",
+        "parameters": {
+          "category": {
+            "description": "分类，默认为 `gzdt`，即工作动态，可在对应分类页 URL 中找到",
+            "options": [
+              {
+                "label": "工作动态",
+                "value": "gzdt"
+              },
+              {
+                "label": "通知公告",
+                "value": "tzgg"
+              },
+              {
+                "label": "“一带一路”合作和农业走出去",
+                "value": "ydylhzhhnyzcq"
+              },
+              {
+                "label": "农业国际贸易监测与展望",
+                "value": "ncpmy"
+              },
+              {
+                "label": "多双边合作",
+                "value": "dsbhz"
+              }
+            ]
+          }
+        },
+        "description": ":::tip\n若订阅 [中华人民共和国农业农村部国际合作司工作动态](https://www.gjs.moa.gov.cn/gzdt/)，网址为 `https://www.gjs.moa.gov.cn/gzdt/`，请截取 `https://www.gjs.moa.gov.cn/` 到末尾 `/` 的部分 `gzdt` 作为 `category` 参数填入，此时目标路由为 [`/gov/moa/gjs/gzdt`](https://rsshub.app/gov/moa/gjs/gzdt)。\n:::\n\n| [工作动态](http://www.gjs.moa.gov.cn/gzdt/) | [通知公告](http://www.gjs.moa.gov.cn/tzgg/) | [“一带一路”合作和农业走出去](http://www.gjs.moa.gov.cn/ydylhzhhnyzcq/) | [农业国际贸易监测与展望](http://www.gjs.moa.gov.cn/ncpmy/) | [多双边合作](http://www.gjs.moa.gov.cn/dsbhz/) |\n| ------------------------------------------- | ------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------- |\n| [gzdt](https://rsshub.app/gov/moa/gjs/gzdt) | [tzgg](https://rsshub.app/gov/moa/gjs/tzgg) | [ydylhzhhnyzcq](https://rsshub.app/gov/moa/gjs/ydylhzhhnyzcq)          | [ncpmy](https://rsshub.app/gov/moa/gjs/ncpmy)              | [dsbhz](https://rsshub.app/gov/moa/gjs/dsbhz)  |\n",
+        "categories": [
+          "government"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.gjs.moa.gov.cn/:category{.+}?"
+            ]
+          },
+          {
+            "title": "工作动态",
+            "source": [
+              "www.gjs.moa.gov.cn/gzdt/"
+            ],
+            "target": "/moa/gjs/gzdt"
+          },
+          {
+            "title": "通知公告",
+            "source": [
+              "www.gjs.moa.gov.cn/tzgg/"
+            ],
+            "target": "/moa/gjs/tzgg"
+          },
+          {
+            "title": "“一带一路”合作和农业走出去",
+            "source": [
+              "www.gjs.moa.gov.cn/ydylhzhhnyzcq/"
+            ],
+            "target": "/moa/gjs/ydylhzhhnyzcq"
+          },
+          {
+            "title": "农业国际贸易监测与展望",
+            "source": [
+              "www.gjs.moa.gov.cn/ncpmy/"
+            ],
+            "target": "/moa/gjs/ncpmy"
+          },
+          {
+            "title": "多双边合作",
+            "source": [
+              "www.gjs.moa.gov.cn/dsbhz/"
+            ],
+            "target": "/moa/gjs/dsbhz"
+          }
+        ],
+        "view": 0,
+        "location": "moa/gjs.ts"
+      },
       "/moa/suburl/:suburl{.+}": {
         "path": "/moa/suburl/:suburl{.+}",
         "categories": [
@@ -39310,6 +39884,55 @@
         "url": "rsj.taiyuan.gov.cn/*",
         "description": "| 工作动态 | 太原新闻 | 通知公告 | 县区动态 | 国内动态 | 图片新闻 |\n| -------- | -------- | -------- | -------- | -------- | -------- |\n| gzdt     | tyxw     | gggs     | xqdt     | gndt     | tpxw     |",
         "location": "taiyuan/rsj.ts"
+      },
+      "/tianjin/tjftz-notice/:channelId": {
+        "path": "/tianjin/tjftz-notice/:channelId",
+        "categories": [
+          "government"
+        ],
+        "example": "/gov/tianjin/tjftz-notice/6302",
+        "parameters": {
+          "channelId": "公告分类id、详细信息点击源网站https://www.tjftz.gov.cn/请求中寻找"
+        },
+        "radar": [
+          {
+            "source": [
+              "tjftz.gov.cn/channels/:channelId.html"
+            ],
+            "target": "/tianjin/tjftz-notice/:channelId"
+          }
+        ],
+        "name": "天津港保税区-公告",
+        "url": "tjftz.gov.cn",
+        "maintainers": [
+          "HaoyuLee"
+        ],
+        "description": "\n| 公告类别         | channelId |\n| ------------ | -- |\n| 首页>新闻>保税区要闻>区域聚焦     | 6302  |\n    ",
+        "location": "tianjin/tjftz.ts"
+      },
+      "/tianjin/tjrcgzw-notice/:cate/:subCate": {
+        "path": "/tianjin/tjrcgzw-notice/:cate/:subCate",
+        "categories": [
+          "government"
+        ],
+        "example": "/gov/tianjin/tjrcgzw-notice/rczc/sjrczc/",
+        "parameters": {
+          "channelId": "公告分类id、详细信息点击源网站https://hrss.tj.gov.cn/ztzl/ztzl1/tjrcgzw/请求中寻找"
+        },
+        "radar": [
+          {
+            "source": [
+              "hrss.tj.gov.cn/ztzl/ztzl1/tjrcgzw/"
+            ],
+            "target": "/tianjin/tjrcgzw-notice/:cate/:subCate"
+          }
+        ],
+        "name": "天津人才工作网-公告",
+        "url": "hrss.tj.gov.cn/ztzl/ztzl1/tjrcgzw/",
+        "maintainers": [
+          "HaoyuLee"
+        ],
+        "location": "tianjin/tjrcgzw.ts"
       },
       "/wuhan/sy/whyw": {
         "path": "/wuhan/sy/whyw",
@@ -43297,6 +43920,88 @@
   },
   "hrbust": {
     "routes": {
+      "/cs/:category?": {
+        "path": "/cs/:category?",
+        "name": "计算机学院",
+        "url": "cs.hrbust.edu.cn",
+        "maintainers": [
+          "cscnk52"
+        ],
+        "example": "/hrbust/cs",
+        "parameters": {
+          "category": "栏目标识，默认为 3709（学院要闻）"
+        },
+        "description": "| 通知公告 | 学院要闻 | 常用下载 | 博士后流动站 | 学生指导 | 科研动态 | 科技成果 | 党建理论 | 党建学习 | 党建活动 | 党建风采 | 团学组织 | 学生党建 | 学生活动 | 心理健康 | 青春榜样 | 就业工作 | 校友风采 | 校庆专栏 | 专业介绍 | 本科生培养方案 | 硕士生培养方案 | 能力作风建设 | 博士生培养方案 | 省级实验教学示范中心 | 喜迎二十大系列活动 | 学习贯彻省十三次党代会精神 |\n|----------|----------|----------|--------------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------|----------------|----------------|--------------|----------------|----------------------|--------------------|----------------------------|\n| 3708     | 3709     | 3710     | 3725         | 3729     | 3732     | 3733     | 3740     | 3741     | 3742     | 3743     | 3744     | 3745     | 3746     | 3747     | 3748     | 3751     | 3752     | 3753     | 3755     | 3756           | 3759           | nlzfjs       | pyfa           | sjsyjxsfzx           | srxxgcddesdjs      | xxgcssscddhjs              |",
+        "categories": [
+          "university"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "supportRadar": true
+        },
+        "radar": [
+          {
+            "source": [
+              "cs.hrbust.edu.cn/:category/list.htm"
+            ],
+            "target": "/cs/:category"
+          },
+          {
+            "source": [
+              "cs.hrbust.edu.cn"
+            ],
+            "target": "/cs"
+          }
+        ],
+        "view": 5,
+        "location": "cs.ts"
+      },
+      "/gzc/:category?": {
+        "path": "/gzc/:category?",
+        "name": "国有资产管理处",
+        "url": "gzc.hrbust.edu.cn",
+        "maintainers": [
+          "cscnk52"
+        ],
+        "example": "/hrbust/gzc",
+        "parameters": {
+          "category": "栏目标识，默认为 1305（热点新闻）"
+        },
+        "description": "| 政策规章 | 资料下载 | 处务公开 | 招标信息 | 岗位职责 | 管理办法 | 物资处理 | 工作动态 | 热点新闻 |\n|----------|----------|----------|----------|----------|----------|----------|----------|----------|\n| 1287     | 1288     | 1289     | 1291     | 1300     | 1301     | 1302     | 1304     | 1305     |",
+        "categories": [
+          "university"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "supportRadar": true
+        },
+        "radar": [
+          {
+            "source": [
+              "gzc.hrbust.edu.cn/:category/list.htm"
+            ],
+            "target": "/gzc/:category"
+          },
+          {
+            "source": [
+              "gzc.hrbust.edu.cn"
+            ],
+            "target": "/gzc"
+          }
+        ],
+        "view": 5,
+        "location": "gzc.ts"
+      },
       "/jwzx/:type?/:page?": {
         "path": "/jwzx/:type?/:page?",
         "name": "教务处",
@@ -43333,6 +44038,47 @@
         ],
         "view": 5,
         "location": "jwzx.ts"
+      },
+      "/lib/:category?": {
+        "path": "/lib/:category?",
+        "name": "图书馆",
+        "url": "lib.hrbust.edu.cn",
+        "maintainers": [
+          "cscnk52"
+        ],
+        "example": "/hrbust/lib",
+        "parameters": {
+          "category": "栏目标识，默认为 3421（公告消息）"
+        },
+        "description": "| 公告消息 | 资源动态 | 参考中心 | 常用工具 | 外借服务 | 报告厅及研讨间服务 | 外文引进数据库 | 外文电子图书 | 外文试用数据库 | 中文引进数据库 | 中文电子图书 | 中文试用数据库 |\n|----------|----------|----------|----------|----------|--------------------|----------------|--------------|----------------|----------------|--------------|----------------|\n| 3421     | 3422     | ckzx     | cygj     | wjfw     | ytjfw              | yw             | yw_3392      | yw_3395        | zw             | zw_3391      | zw_3394        |",
+        "categories": [
+          "university"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false,
+          "supportRadar": true
+        },
+        "radar": [
+          {
+            "source": [
+              "lib.hrbust.edu.cn/:category/list.htm"
+            ],
+            "target": "/lib/:category"
+          },
+          {
+            "source": [
+              "lib.hrbust.edu.cn"
+            ],
+            "target": "/lib"
+          }
+        ],
+        "view": 5,
+        "location": "lib.ts"
       },
       "/news/:category?": {
         "path": "/news/:category?",
@@ -47317,17 +48063,57 @@
   },
   "iplaysoft": {
     "routes": {
-      "/": {
-        "path": "/",
+      "/category/:slug": {
+        "path": "/category/:slug",
+        "name": "分类",
+        "url": "www.iplaysoft.com",
+        "maintainers": [
+          "cscnk52"
+        ],
+        "example": "/iplaysoft/category/system",
+        "parameters": {
+          "slug": "分类名称"
+        },
         "categories": [
           "program-update"
         ],
-        "example": "/iplaysoft",
-        "parameters": {},
         "features": {
           "requireConfig": false,
           "requirePuppeteer": false,
           "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.iplaysoft.com/category/:slug"
+            ],
+            "target": "/category/:slug"
+          }
+        ],
+        "view": 0,
+        "location": "category.ts"
+      },
+      "/": {
+        "path": "/",
+        "name": "首页",
+        "url": "www.iplaysoft.com",
+        "maintainers": [
+          "williamgateszhao",
+          "cscnk52"
+        ],
+        "example": "/iplaysoft",
+        "categories": [
+          "program-update"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
           "supportBT": false,
           "supportPodcast": false,
           "supportScihub": false
@@ -47336,18 +48122,53 @@
           {
             "source": [
               "www.iplaysoft.com"
-            ]
+            ],
+            "target": "/"
           }
         ],
-        "name": "全部文章",
-        "maintainers": [
-          "williamgateszhao"
-        ],
+        "view": 0,
         "location": "index.ts"
+      },
+      "/tag/:slug": {
+        "path": "/tag/:slug",
+        "name": "标签",
+        "url": "www.iplaysoft.com",
+        "maintainers": [
+          "cscnk52"
+        ],
+        "example": "/iplaysoft/tag/windows",
+        "parameters": {
+          "slug": "标签名称"
+        },
+        "categories": [
+          "program-update"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.iplaysoft.com/tag/:slug"
+            ],
+            "target": "/tag/:slug"
+          }
+        ],
+        "view": 0,
+        "location": "tag.ts"
       }
     },
     "name": "异次元软件世界",
     "url": "www.iplaysoft.com",
+    "categories": [
+      "new-media"
+    ],
     "lang": "zh-CN"
   },
   "ippa": {
@@ -50385,6 +51206,109 @@
     "url": "jornada.com.mx",
     "lang": "es"
   },
+  "joshwcomeau": {
+    "routes": {
+      "/latest/:category?": {
+        "path": "/latest/:category?",
+        "categories": [
+          "programming"
+        ],
+        "example": "/joshwcomeau/latest/css",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "parameters": {
+          "category": {
+            "description": "Category",
+            "options": [
+              {
+                "value": "css",
+                "label": "CSS"
+              },
+              {
+                "value": "react",
+                "label": "React"
+              },
+              {
+                "value": "animation",
+                "label": "Animation"
+              },
+              {
+                "value": "javascript",
+                "label": "JavaScript"
+              },
+              {
+                "value": "career",
+                "label": "Career"
+              },
+              {
+                "value": "blog",
+                "label": "Blog"
+              }
+            ]
+          }
+        },
+        "radar": [
+          {
+            "source": [
+              "joshwcomeau.com/"
+            ],
+            "target": "/latest"
+          },
+          {
+            "source": [
+              "joshwcomeau.com/:category"
+            ],
+            "target": "/latest/:category"
+          }
+        ],
+        "name": "Articles and Tutorials",
+        "maintainers": [
+          "Rjnishant530"
+        ],
+        "location": "latest.ts"
+      },
+      "/popular": {
+        "path": "/popular",
+        "categories": [
+          "programming"
+        ],
+        "example": "/joshwcomeau/popular",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "joshwcomeau.com/"
+            ],
+            "target": "/popular"
+          }
+        ],
+        "name": "Popular Content",
+        "maintainers": [
+          "Rjnishant530"
+        ],
+        "location": "popular.ts"
+      }
+    },
+    "name": "Josh W Comeau",
+    "url": "www.joshwcomeau.com",
+    "categories": [
+      "programming"
+    ],
+    "lang": "en"
+  },
   "jou": {
     "routes": {
       "/tzgg": {
@@ -52258,12 +53182,47 @@
   },
   "landiannews": {
     "routes": {
-      "/": {
-        "path": "/",
-        "name": "资讯",
+      "/category/:slug": {
+        "path": "/category/:slug",
+        "name": "分类",
         "url": "www.landiannews.com",
         "maintainers": [
-          "nczitzk"
+          "cscnk52"
+        ],
+        "example": "/landiannews/category/sells",
+        "parameters": {
+          "slug": "分类名称"
+        },
+        "categories": [
+          "new-media"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.landiannews.com/:slug"
+            ],
+            "target": "/category/:slug"
+          }
+        ],
+        "view": 0,
+        "location": "category.ts"
+      },
+      "/": {
+        "path": "/",
+        "name": "首页",
+        "url": "www.landiannews.com",
+        "maintainers": [
+          "nczitzk",
+          "cscnk52"
         ],
         "example": "/landiannews",
         "categories": [
@@ -52288,6 +53247,40 @@
         ],
         "view": 0,
         "location": "index.ts"
+      },
+      "/tag/:slug": {
+        "path": "/tag/:slug",
+        "name": "标签",
+        "url": "www.landiannews.com",
+        "maintainers": [
+          "cscnk52"
+        ],
+        "example": "/landiannews/tag/linux-kernel",
+        "parameters": {
+          "slug": "标签名称"
+        },
+        "categories": [
+          "new-media"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.landiannews.com/archives/tag/:slug"
+            ],
+            "target": "/tag/:slug"
+          }
+        ],
+        "view": 0,
+        "location": "tag.ts"
       }
     },
     "name": "蓝点网",
@@ -52582,6 +53575,36 @@
     },
     "name": "Layoffs.fyi",
     "url": "layoffs.fyi",
+    "lang": "en"
+  },
+  "leagueoflegends": {
+    "routes": {
+      "/patch-notes": {
+        "path": "/patch-notes",
+        "categories": [
+          "game"
+        ],
+        "example": "/leagueoflegends/patch-notes",
+        "radar": [
+          {
+            "source": [
+              "www.leagueoflegends.com/en-us/news/tags/patch-notes/",
+              "www.leagueoflegends.com/en-us/news/game-updates/:postSlug"
+            ]
+          }
+        ],
+        "name": "Patch Notes",
+        "maintainers": [
+          "noahm"
+        ],
+        "location": "patch-notes.ts"
+      }
+    },
+    "name": "League of Legends",
+    "url": "leagueoflegends.com",
+    "categories": [
+      "game"
+    ],
     "lang": "en"
   },
   "learnblockchain": {
@@ -55307,6 +56330,39 @@
       "multimedia"
     ],
     "lang": "en"
+  },
+  "mashiro": {
+    "routes": {
+      "/:lang": {
+        "path": "/:lang",
+        "categories": [
+          "blog"
+        ],
+        "example": "/mashiro/en",
+        "parameters": {
+          "lang": "the language of the site. Can be either `en` or `zh-cn`. Default: `en`"
+        },
+        "radar": [
+          {
+            "source": [
+              "mashiro.best/",
+              "mashiro.best/:lang/"
+            ]
+          }
+        ],
+        "name": "Blog",
+        "maintainers": [
+          "MuenYu"
+        ],
+        "location": "index.ts"
+      }
+    },
+    "name": "Mashiro's Baumkuchen",
+    "url": "mashiro.best",
+    "description": "Muen's blog posts",
+    "zh": {
+      "name": "真白的年轮面包"
+    }
   },
   "mastodon": {
     "routes": {
@@ -58132,7 +59188,8 @@
           "antiCrawler": false,
           "supportBT": false,
           "supportPodcast": false,
-          "supportScihub": false
+          "supportScihub": false,
+          "supportRadar": true
         },
         "radar": [
           {
@@ -58144,7 +59201,8 @@
         "name": "技术团队博客",
         "url": "tech.meituan.com",
         "maintainers": [
-          "ktKongTong"
+          "ktKongTong",
+          "cscnk52"
         ],
         "location": "tech.ts"
       }
@@ -59026,6 +60084,45 @@
         ],
         "location": "featured-notes.ts"
       },
+      "/timeline/home/:site/:routeParams?": {
+        "path": "/timeline/home/:site/:routeParams?",
+        "categories": [
+          "social-media"
+        ],
+        "view": 1,
+        "example": "/misskey/timeline/home/misskey.io",
+        "parameters": {
+          "site": "instance address, domain only, without `http://` or `https://` protocol header",
+          "routeParams": "\n| Key                  | Description                             | Accepted Values | Default |\n| -------------------- | --------------------------------------- | --------------- | ------- |\n| limit                | Number of notes to return               | integer         | 10      |\n| withFiles            | Only return notes containing files      | 0/1/true/false  | false   |\n| withRenotes          | Include renotes in the timeline         | 0/1/true/false  | true    |\n| allowPartial         | Allow partial results                   | 0/1/true/false  | true    |\n| simplifyAuthor       | Simplify author field in feed items     | 0/1/true/false  | true    |\n\nNote: If `withFiles` is set to true, renotes will not be included in the timeline regardless of the value of `withRenotes`.\n\nExamples:\n- /misskey/timeline/home/misskey.io/limit=20&withFiles=true\n- /misskey/timeline/home/misskey.io/withRenotes=false\n        "
+        },
+        "features": {
+          "requireConfig": [
+            {
+              "name": "MISSKEY_ACCESS_TOKEN",
+              "optional": false,
+              "description": "\n                    Access token for Misskey API. Requires `read:account` access.\n\n                    Visit the specified site's settings page to obtain an access token. E.g. https://misskey.io/settings/api\n                "
+            }
+          ],
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "misskey.io"
+            ]
+          }
+        ],
+        "name": "Home Timeline",
+        "maintainers": [
+          "HanaokaYuzu"
+        ],
+        "description": "::: warning\n    This route is only available for self-hosted instances.\n:::",
+        "location": "home-timeline.ts"
+      },
       "/users/notes/:username/:routeParams?": {
         "path": "/users/notes/:username/:routeParams?",
         "categories": [
@@ -59036,7 +60133,7 @@
         "example": "/misskey/users/notes/support@misskey.io",
         "parameters": {
           "username": "Misskey username in the format of username@instance.domain",
-          "routeParams": "\n| Key         | Description                        | Accepted Values | Default |\n| ----------- | ---------------------------------- | --------------- | ------- |\n| withRenotes | Include renotes in the timeline    | 0/1/true/false  | false   |\n| mediaOnly   | Only return posts containing media | 0/1/true/false  | false   |\n\nNote: `withRenotes` and `mediaOnly` are mutually exclusive and cannot both be set to true.\n\nExamples:\n- /misskey/users/notes/mttb2ccp@misskey.io/withRenotes=true\n- /misskey/users/notes/mttb2ccp@misskey.io/mediaOnly=true"
+          "routeParams": "\n| Key               | Description                             | Accepted Values | Default |\n| ----------------- | --------------------------------------- | --------------- | ------- |\n| withRenotes       | Include renotes in the timeline         | 0/1/true/false  | false   |\n| mediaOnly         | Only return posts containing media      | 0/1/true/false  | false   |\n| simplifyAuthor    | Simplify author field in feed items     | 0/1/true/false  | false   |\n\nNote: `withRenotes` and `mediaOnly` are mutually exclusive and cannot both be set to true.\n\nExamples:\n- /misskey/users/notes/mttb2ccp@misskey.io/withRenotes=true\n- /misskey/users/notes/mttb2ccp@misskey.io/mediaOnly=true"
         },
         "features": {
           "requireConfig": false,
@@ -59049,7 +60146,8 @@
         "name": "User timeline",
         "maintainers": [
           "siygle",
-          "SnowAgar25"
+          "SnowAgar25",
+          "HanaokaYuzu"
         ],
         "location": "user-timeline.ts"
       }
@@ -60702,7 +61800,7 @@
         "categories": [
           "reading"
         ],
-        "example": "nautiljon/releases/manga",
+        "example": "/nautiljon/releases/manga",
         "parameters": {},
         "features": {
           "requireConfig": false,
@@ -65952,6 +67050,97 @@
     "url": "oilchem.net",
     "lang": "zh-CN"
   },
+  "okx": {
+    "routes": {
+      "/:section?": {
+        "path": "/:section?",
+        "categories": [
+          "finance"
+        ],
+        "example": "/okx/new-listings",
+        "parameters": {
+          "section": {
+            "description": "公告版块",
+            "default": "latest-announcements",
+            "options": [
+              {
+                "value": "latest-announcements",
+                "label": "最新公告"
+              },
+              {
+                "value": "new-listings",
+                "label": "新币种上线"
+              },
+              {
+                "value": "delistings",
+                "label": "币对下线"
+              },
+              {
+                "value": "trading-updates",
+                "label": "交易规则更新"
+              },
+              {
+                "value": "deposit-withdrawal-suspension-resumption",
+                "label": "充提暂停/恢复公告"
+              },
+              {
+                "value": "p2p-trading",
+                "label": "C2C 公告"
+              },
+              {
+                "value": "web3",
+                "label": "Web3"
+              },
+              {
+                "value": "earn",
+                "label": "赚币"
+              },
+              {
+                "value": "jumpstart",
+                "label": "Jumpstart"
+              },
+              {
+                "value": "api",
+                "label": "API公告"
+              },
+              {
+                "value": "okb-buy-back-burn",
+                "label": "OKB销毁"
+              },
+              {
+                "value": "others",
+                "label": "其他"
+              }
+            ]
+          }
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.okx.com/zh-hans/help/section/:section"
+            ],
+            "target": "/:section"
+          }
+        ],
+        "name": "公告",
+        "maintainers": [
+          "lxl66566"
+        ],
+        "location": "index.ts"
+      }
+    },
+    "name": "欧易 OKX",
+    "url": "www.okx.com/zh-hans",
+    "lang": "zh-CN"
+  },
   "olevod": {
     "routes": {
       "/vod/:id": {
@@ -67524,19 +68713,21 @@
   },
   "papers": {
     "routes": {
-      "/arxiv/:category{.+}?": {
-        "path": "/arxiv/:category{.+}?",
-        "name": "Topic",
+      "/category/:id{.+}?": {
+        "path": "/category/:id{.+}?",
+        "name": "Category",
         "url": "papers.cool",
         "maintainers": [
           "nczitzk",
           "Muyun99"
         ],
-        "example": "/papers/arxiv/cs.AI",
+        "example": "/papers/category/arxiv/cs.AI",
         "parameters": {
-          "category": "Category, arXiv Artificial Intelligence (cs.AI) by default"
+          "id": {
+            "description": "Category ID, can be found in URL"
+          }
         },
-        "description": "::: tip\n  If you subscribe to [arXiv Artificial Intelligence (cs.AI)](https://papers.cool/arxiv/cs.AI), where the URL is `https://papers.cool/arxiv/cs.AI`, extract the part `https://papers.cool/` to the end, and use it as the parameter to fill in. Therefore, the route will be [`/papers/arxiv/cs.AI`](https://rsshub.app/papers/arxiv/cs.AI).\n:::\n\n| Category                                              | id          |\n| ----------------------------------------------------- | ----------- |\n| arXiv Artificial Intelligence (cs.AI)                 | arxiv/cs.AI |\n| arXiv Computation and Language (cs.CL)                | arxiv/cs.CL |\n| arXiv Computer Vision and Pattern Recognition (cs.CV) | arxiv/cs.CV |\n| arXiv Machine Learning (cs.LG)                        | arxiv/cs.LG |\n| arXiv Robotics (cs.RO)                                | arxiv/cs.RO |\n  ",
+        "description": ":::tip\nTo subscribe to [Artificial Intelligence (cs.AI)](https://papers.cool/arxiv/cs.AI) (<https://papers.cool/arxiv/cs.AI>), extract `arxiv/cs.AI` from the URL as the `category` parameter. The resulting route will be [`/papers/category/arxiv/cs.AI`](https://rsshub.app/papers/category/arxiv/cs.AI).\n:::\n\n<details>\n  <summary>More categories</summary>\n\n#### [Astrophysics (astro-ph)](https://papers.cool/arxiv/astro-ph)\n\n| [Astrophysics (astro-ph)](https://papers.cool/arxiv/astro-ph)       | [Astrophysics of Galaxies (astro-ph.GA)](https://papers.cool/arxiv/astro-ph.GA) | [Cosmology and Nongalactic Astrophysics (astro-ph.CO)](https://papers.cool/arxiv/astro-ph.CO) | [Earth and Planetary Astrophysics (astro-ph.EP)](https://papers.cool/arxiv/astro-ph.EP) | [High Energy Astrophysical Phenomena (astro-ph.HE)](https://papers.cool/arxiv/astro-ph.HE) |\n| ------------------------------------------------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |\n| [arxiv/astro-ph](https://rsshub.app/papers/category/arxiv/astro-ph) | [arxiv/astro-ph.GA](https://rsshub.app/papers/category/arxiv/astro-ph.GA)       | [arxiv/astro-ph.CO](https://rsshub.app/papers/category/arxiv/astro-ph.CO)                     | [arxiv/astro-ph.EP](https://rsshub.app/papers/category/arxiv/astro-ph.EP)               | [arxiv/astro-ph.HE](https://rsshub.app/papers/category/arxiv/astro-ph.HE)                  |\n\n| [Instrumentation and Methods for Astrophysics (astro-ph.IM)](https://papers.cool/arxiv/astro-ph.IM) | [Solar and Stellar Astrophysics (astro-ph.SR)](https://papers.cool/arxiv/astro-ph.SR) |\n| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |\n| [arxiv/astro-ph.IM](https://rsshub.app/papers/category/arxiv/astro-ph.IM)                           | [arxiv/astro-ph.SR](https://rsshub.app/papers/category/arxiv/astro-ph.SR)             |\n\n#### [Condensed Matter (cond-mat)](https://papers.cool/arxiv/cond-mat)\n\n| [Condensed Matter (cond-mat)](https://papers.cool/arxiv/cond-mat)   | [Disordered Systems and Neural Networks (cond-mat.dis-nn)](https://papers.cool/arxiv/cond-mat.dis-nn) | [Materials Science (cond-mat.mtrl-sci)](https://papers.cool/arxiv/cond-mat.mtrl-sci)  | [Mesoscale and Nanoscale Physics (cond-mat.mes-hall)](https://papers.cool/arxiv/cond-mat.mes-hall) | [Other Condensed Matter (cond-mat.other)](https://papers.cool/arxiv/cond-mat.other) |\n| ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |\n| [arxiv/cond-mat](https://rsshub.app/papers/category/arxiv/cond-mat) | [arxiv/cond-mat.dis-nn](https://rsshub.app/papers/category/arxiv/cond-mat.dis-nn)                     | [arxiv/cond-mat.mtrl-sci](https://rsshub.app/papers/category/arxiv/cond-mat.mtrl-sci) | [arxiv/cond-mat.mes-hall](https://rsshub.app/papers/category/arxiv/cond-mat.mes-hall)              | [arxiv/cond-mat.other](https://rsshub.app/papers/category/arxiv/cond-mat.other)     |\n\n| [Quantum Gases (cond-mat.quant-gas)](https://papers.cool/arxiv/cond-mat.quant-gas)      | [Soft Condensed Matter (cond-mat.soft)](https://papers.cool/arxiv/cond-mat.soft) | [Statistical Mechanics (cond-mat.stat-mech)](https://papers.cool/arxiv/cond-mat.stat-mech) | [Strongly Correlated Electrons (cond-mat.str-el)](https://papers.cool/arxiv/cond-mat.str-el) | [Superconductivity (cond-mat.supr-con)](https://papers.cool/arxiv/cond-mat.supr-con)  |\n| --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |\n| [arxiv/cond-mat.quant-gas](https://rsshub.app/papers/category/arxiv/cond-mat.quant-gas) | [arxiv/cond-mat.soft](https://rsshub.app/papers/category/arxiv/cond-mat.soft)    | [arxiv/cond-mat.stat-mech](https://rsshub.app/papers/category/arxiv/cond-mat.stat-mech)    | [arxiv/cond-mat.str-el](https://rsshub.app/papers/category/arxiv/cond-mat.str-el)            | [arxiv/cond-mat.supr-con](https://rsshub.app/papers/category/arxiv/cond-mat.supr-con) |\n\n#### [General Relativity and Quantum Cosmology (gr-qc)](https://papers.cool/arxiv/gr-qc)\n\n| [General Relativity and Quantum Cosmology (gr-qc)](https://papers.cool/arxiv/gr-qc) |\n| ----------------------------------------------------------------------------------- |\n| [arxiv/gr-qc](https://rsshub.app/papers/category/arxiv/gr-qc)                       |\n\n#### [High Energy Physics - Experiment (hep-ex)](https://papers.cool/arxiv/hep-ex)\n\n| [High Energy Physics - Experiment (hep-ex)](https://papers.cool/arxiv/hep-ex) |\n| ----------------------------------------------------------------------------- |\n| [arxiv/hep-ex](https://rsshub.app/papers/category/arxiv/hep-ex)               |\n\n#### [High Energy Physics - Lattice (hep-lat)](https://papers.cool/arxiv/hep-lat)\n\n| [High Energy Physics - Lattice (hep-lat)](https://papers.cool/arxiv/hep-lat) |\n| ---------------------------------------------------------------------------- |\n| [arxiv/hep-lat](https://rsshub.app/papers/category/arxiv/hep-lat)            |\n\n#### [High Energy Physics - Phenomenology (hep-ph)](https://papers.cool/arxiv/hep-ph)\n\n| [High Energy Physics - Phenomenology (hep-ph)](https://papers.cool/arxiv/hep-ph) |\n| -------------------------------------------------------------------------------- |\n| [arxiv/hep-ph](https://rsshub.app/papers/category/arxiv/hep-ph)                  |\n\n#### [High Energy Physics - Theory (hep-th)](https://papers.cool/arxiv/hep-th)\n\n| [High Energy Physics - Theory (hep-th)](https://papers.cool/arxiv/hep-th) |\n| ------------------------------------------------------------------------- |\n| [arxiv/hep-th](https://rsshub.app/papers/category/arxiv/hep-th)           |\n\n#### [Mathematical Physics (math-ph)](https://papers.cool/arxiv/math-ph)\n\n| [Mathematical Physics (math-ph)](https://papers.cool/arxiv/math-ph) |\n| ------------------------------------------------------------------- |\n| [arxiv/math-ph](https://rsshub.app/papers/category/arxiv/math-ph)   |\n\n#### [Nonlinear Sciences (nlin)](https://papers.cool/arxiv/nlin)\n\n| [Nonlinear Sciences (nlin)](https://papers.cool/arxiv/nlin) | [Adaptation and Self-Organizing Systems (nlin.AO)](https://papers.cool/arxiv/nlin.AO) | [Cellular Automata and Lattice Gases (nlin.CG)](https://papers.cool/arxiv/nlin.CG) | [Chaotic Dynamics (nlin.CD)](https://papers.cool/arxiv/nlin.CD)   | [Exactly Solvable and Integrable Systems (nlin.SI)](https://papers.cool/arxiv/nlin.SI) |\n| ----------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------- |\n| [arxiv/nlin](https://rsshub.app/papers/category/arxiv/nlin) | [arxiv/nlin.AO](https://rsshub.app/papers/category/arxiv/nlin.AO)                     | [arxiv/nlin.CG](https://rsshub.app/papers/category/arxiv/nlin.CG)                  | [arxiv/nlin.CD](https://rsshub.app/papers/category/arxiv/nlin.CD) | [arxiv/nlin.SI](https://rsshub.app/papers/category/arxiv/nlin.SI)                      |\n\n| [Pattern Formation and Solitons (nlin.PS)](https://papers.cool/arxiv/nlin.PS) |\n| ----------------------------------------------------------------------------- |\n| [arxiv/nlin.PS](https://rsshub.app/papers/category/arxiv/nlin.PS)             |\n\n#### [Nuclear Experiment (nucl-ex)](https://papers.cool/arxiv/nucl-ex)\n\n| [Nuclear Experiment (nucl-ex)](https://papers.cool/arxiv/nucl-ex) |\n| ----------------------------------------------------------------- |\n| [arxiv/nucl-ex](https://rsshub.app/papers/category/arxiv/nucl-ex) |\n\n#### [Nuclear Theory (nucl-th)](https://papers.cool/arxiv/nucl-th)\n\n| [Nuclear Theory (nucl-th)](https://papers.cool/arxiv/nucl-th)     |\n| ----------------------------------------------------------------- |\n| [arxiv/nucl-th](https://rsshub.app/papers/category/arxiv/nucl-th) |\n\n#### [Physics (physics)](https://papers.cool/arxiv/physics)\n\n| [Physics (physics)](https://papers.cool/arxiv/physics)            | [Accelerator Physics (physics.acc-ph)](https://papers.cool/arxiv/physics.acc-ph) | [Applied Physics (physics.app-ph)](https://papers.cool/arxiv/physics.app-ph)    | [Atmospheric and Oceanic Physics (physics.ao-ph)](https://papers.cool/arxiv/physics.ao-ph) | [Atomic and Molecular Clusters (physics.atm-clus)](https://papers.cool/arxiv/physics.atm-clus) |\n| ----------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |\n| [arxiv/physics](https://rsshub.app/papers/category/arxiv/physics) | [arxiv/physics.acc-ph](https://rsshub.app/papers/category/arxiv/physics.acc-ph)  | [arxiv/physics.app-ph](https://rsshub.app/papers/category/arxiv/physics.app-ph) | [arxiv/physics.ao-ph](https://rsshub.app/papers/category/arxiv/physics.ao-ph)              | [arxiv/physics.atm-clus](https://rsshub.app/papers/category/arxiv/physics.atm-clus)            |\n\n| [Atomic Physics (physics.atom-ph)](https://papers.cool/arxiv/physics.atom-ph)     | [Biological Physics (physics.bio-ph)](https://papers.cool/arxiv/physics.bio-ph) | [Chemical Physics (physics.chem-ph)](https://papers.cool/arxiv/physics.chem-ph)   | [Classical Physics (physics.class-ph)](https://papers.cool/arxiv/physics.class-ph)  | [Computational Physics (physics.comp-ph)](https://papers.cool/arxiv/physics.comp-ph) |\n| --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |\n| [arxiv/physics.atom-ph](https://rsshub.app/papers/category/arxiv/physics.atom-ph) | [arxiv/physics.bio-ph](https://rsshub.app/papers/category/arxiv/physics.bio-ph) | [arxiv/physics.chem-ph](https://rsshub.app/papers/category/arxiv/physics.chem-ph) | [arxiv/physics.class-ph](https://rsshub.app/papers/category/arxiv/physics.class-ph) | [arxiv/physics.comp-ph](https://rsshub.app/papers/category/arxiv/physics.comp-ph)    |\n\n| [Data Analysis, Statistics and Probability (physics.data-an)](https://papers.cool/arxiv/physics.data-an) | [Fluid Dynamics (physics.flu-dyn)](https://papers.cool/arxiv/physics.flu-dyn)     | [General Physics (physics.gen-ph)](https://papers.cool/arxiv/physics.gen-ph)    | [Geophysics (physics.geo-ph)](https://papers.cool/arxiv/physics.geo-ph)         | [History and Philosophy of Physics (physics.hist-ph)](https://papers.cool/arxiv/physics.hist-ph) |\n| -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |\n| [arxiv/physics.data-an](https://rsshub.app/papers/category/arxiv/physics.data-an)                        | [arxiv/physics.flu-dyn](https://rsshub.app/papers/category/arxiv/physics.flu-dyn) | [arxiv/physics.gen-ph](https://rsshub.app/papers/category/arxiv/physics.gen-ph) | [arxiv/physics.geo-ph](https://rsshub.app/papers/category/arxiv/physics.geo-ph) | [arxiv/physics.hist-ph](https://rsshub.app/papers/category/arxiv/physics.hist-ph)                |\n\n| [Instrumentation and Detectors (physics.ins-det)](https://papers.cool/arxiv/physics.ins-det) | [Medical Physics (physics.med-ph)](https://papers.cool/arxiv/physics.med-ph)    | [Optics (physics.optics)](https://papers.cool/arxiv/physics.optics)             | [Physics and Society (physics.soc-ph)](https://papers.cool/arxiv/physics.soc-ph) | [Physics Education (physics.ed-ph)](https://papers.cool/arxiv/physics.ed-ph)  |\n| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |\n| [arxiv/physics.ins-det](https://rsshub.app/papers/category/arxiv/physics.ins-det)            | [arxiv/physics.med-ph](https://rsshub.app/papers/category/arxiv/physics.med-ph) | [arxiv/physics.optics](https://rsshub.app/papers/category/arxiv/physics.optics) | [arxiv/physics.soc-ph](https://rsshub.app/papers/category/arxiv/physics.soc-ph)  | [arxiv/physics.ed-ph](https://rsshub.app/papers/category/arxiv/physics.ed-ph) |\n\n| [Plasma Physics (physics.plasm-ph)](https://papers.cool/arxiv/physics.plasm-ph)     | [Popular Physics (physics.pop-ph)](https://papers.cool/arxiv/physics.pop-ph)    | [Space Physics (physics.space-ph)](https://papers.cool/arxiv/physics.space-ph)      |\n| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |\n| [arxiv/physics.plasm-ph](https://rsshub.app/papers/category/arxiv/physics.plasm-ph) | [arxiv/physics.pop-ph](https://rsshub.app/papers/category/arxiv/physics.pop-ph) | [arxiv/physics.space-ph](https://rsshub.app/papers/category/arxiv/physics.space-ph) |\n\n#### [Quantum Physics (quant-ph)](https://papers.cool/arxiv/quant-ph)\n\n| [Quantum Physics (quant-ph)](https://papers.cool/arxiv/quant-ph)    |\n| ------------------------------------------------------------------- |\n| [arxiv/quant-ph](https://rsshub.app/papers/category/arxiv/quant-ph) |\n\n#### [Mathematics (math)](https://papers.cool/arxiv/math)\n\n| [Mathematics (math)](https://papers.cool/arxiv/math)        | [Algebraic Geometry (math.AG)](https://papers.cool/arxiv/math.AG) | [Algebraic Topology (math.AT)](https://papers.cool/arxiv/math.AT) | [Analysis of PDEs (math.AP)](https://papers.cool/arxiv/math.AP)   | [Category Theory (math.CT)](https://papers.cool/arxiv/math.CT)    |\n| ----------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |\n| [arxiv/math](https://rsshub.app/papers/category/arxiv/math) | [arxiv/math.AG](https://rsshub.app/papers/category/arxiv/math.AG) | [arxiv/math.AT](https://rsshub.app/papers/category/arxiv/math.AT) | [arxiv/math.AP](https://rsshub.app/papers/category/arxiv/math.AP) | [arxiv/math.CT](https://rsshub.app/papers/category/arxiv/math.CT) |\n\n| [Classical Analysis and ODEs (math.CA)](https://papers.cool/arxiv/math.CA) | [Combinatorics (math.CO)](https://papers.cool/arxiv/math.CO)      | [Commutative Algebra (math.AC)](https://papers.cool/arxiv/math.AC) | [Complex Variables (math.CV)](https://papers.cool/arxiv/math.CV)  | [Differential Geometry (math.DG)](https://papers.cool/arxiv/math.DG) |\n| -------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------- | -------------------------------------------------------------------- |\n| [arxiv/math.CA](https://rsshub.app/papers/category/arxiv/math.CA)          | [arxiv/math.CO](https://rsshub.app/papers/category/arxiv/math.CO) | [arxiv/math.AC](https://rsshub.app/papers/category/arxiv/math.AC)  | [arxiv/math.CV](https://rsshub.app/papers/category/arxiv/math.CV) | [arxiv/math.DG](https://rsshub.app/papers/category/arxiv/math.DG)    |\n\n| [Dynamical Systems (math.DS)](https://papers.cool/arxiv/math.DS)  | [Functional Analysis (math.FA)](https://papers.cool/arxiv/math.FA) | [General Mathematics (math.GM)](https://papers.cool/arxiv/math.GM) | [General Topology (math.GN)](https://papers.cool/arxiv/math.GN)   | [Geometric Topology (math.GT)](https://papers.cool/arxiv/math.GT) |\n| ----------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ----------------------------------------------------------------- | ----------------------------------------------------------------- |\n| [arxiv/math.DS](https://rsshub.app/papers/category/arxiv/math.DS) | [arxiv/math.FA](https://rsshub.app/papers/category/arxiv/math.FA)  | [arxiv/math.GM](https://rsshub.app/papers/category/arxiv/math.GM)  | [arxiv/math.GN](https://rsshub.app/papers/category/arxiv/math.GN) | [arxiv/math.GT](https://rsshub.app/papers/category/arxiv/math.GT) |\n\n| [Group Theory (math.GR)](https://papers.cool/arxiv/math.GR)       | [History and Overview (math.HO)](https://papers.cool/arxiv/math.HO) | [Information Theory (math.IT)](https://papers.cool/arxiv/math.IT) | [K-Theory and Homology (math.KT)](https://papers.cool/arxiv/math.KT) | [Logic (math.LO)](https://papers.cool/arxiv/math.LO)              |\n| ----------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------- |\n| [arxiv/math.GR](https://rsshub.app/papers/category/arxiv/math.GR) | [arxiv/math.HO](https://rsshub.app/papers/category/arxiv/math.HO)   | [arxiv/math.IT](https://rsshub.app/papers/category/arxiv/math.IT) | [arxiv/math.KT](https://rsshub.app/papers/category/arxiv/math.KT)    | [arxiv/math.LO](https://rsshub.app/papers/category/arxiv/math.LO) |\n\n| [Mathematical Physics (math.MP)](https://papers.cool/arxiv/math.MP) | [Metric Geometry (math.MG)](https://papers.cool/arxiv/math.MG)    | [Number Theory (math.NT)](https://papers.cool/arxiv/math.NT)      | [Numerical Analysis (math.NA)](https://papers.cool/arxiv/math.NA) | [Operator Algebras (math.OA)](https://papers.cool/arxiv/math.OA)  |\n| ------------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |\n| [arxiv/math.MP](https://rsshub.app/papers/category/arxiv/math.MP)   | [arxiv/math.MG](https://rsshub.app/papers/category/arxiv/math.MG) | [arxiv/math.NT](https://rsshub.app/papers/category/arxiv/math.NT) | [arxiv/math.NA](https://rsshub.app/papers/category/arxiv/math.NA) | [arxiv/math.OA](https://rsshub.app/papers/category/arxiv/math.OA) |\n\n| [Optimization and Control (math.OC)](https://papers.cool/arxiv/math.OC) | [Probability (math.PR)](https://papers.cool/arxiv/math.PR)        | [Quantum Algebra (math.QA)](https://papers.cool/arxiv/math.QA)    | [Representation Theory (math.RT)](https://papers.cool/arxiv/math.RT) | [Rings and Algebras (math.RA)](https://papers.cool/arxiv/math.RA) |\n| ----------------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------- |\n| [arxiv/math.OC](https://rsshub.app/papers/category/arxiv/math.OC)       | [arxiv/math.PR](https://rsshub.app/papers/category/arxiv/math.PR) | [arxiv/math.QA](https://rsshub.app/papers/category/arxiv/math.QA) | [arxiv/math.RT](https://rsshub.app/papers/category/arxiv/math.RT)    | [arxiv/math.RA](https://rsshub.app/papers/category/arxiv/math.RA) |\n\n| [Spectral Theory (math.SP)](https://papers.cool/arxiv/math.SP)    | [Statistics Theory (math.ST)](https://papers.cool/arxiv/math.ST)  | [Symplectic Geometry (math.SG)](https://papers.cool/arxiv/math.SG) |\n| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------ |\n| [arxiv/math.SP](https://rsshub.app/papers/category/arxiv/math.SP) | [arxiv/math.ST](https://rsshub.app/papers/category/arxiv/math.ST) | [arxiv/math.SG](https://rsshub.app/papers/category/arxiv/math.SG)  |\n\n#### [Computer Science (cs)](https://papers.cool/arxiv/cs)\n\n| [Computer Science (cs)](https://papers.cool/arxiv/cs)   | [Artificial Intelligence (cs.AI)](https://papers.cool/arxiv/cs.AI) | [Computation and Language (cs.CL)](https://papers.cool/arxiv/cs.CL) | [Computational Complexity (cs.CC)](https://papers.cool/arxiv/cs.CC) | [Computational Engineering, Finance, and Science (cs.CE)](https://papers.cool/arxiv/cs.CE) |\n| ------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |\n| [arxiv/cs](https://rsshub.app/papers/category/arxiv/cs) | [arxiv/cs.AI](https://rsshub.app/papers/category/arxiv/cs.AI)      | [arxiv/cs.CL](https://rsshub.app/papers/category/arxiv/cs.CL)       | [arxiv/cs.CC](https://rsshub.app/papers/category/arxiv/cs.CC)       | [arxiv/cs.CE](https://rsshub.app/papers/category/arxiv/cs.CE)                              |\n\n| [Computational Geometry (cs.CG)](https://papers.cool/arxiv/cs.CG) | [Computer Science and Game Theory (cs.GT)](https://papers.cool/arxiv/cs.GT) | [Computer Vision and Pattern Recognition (cs.CV)](https://papers.cool/arxiv/cs.CV) | [Computers and Society (cs.CY)](https://papers.cool/arxiv/cs.CY) | [Cryptography and Security (cs.CR)](https://papers.cool/arxiv/cs.CR) |\n| ----------------------------------------------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------- | -------------------------------------------------------------------- |\n| [arxiv/cs.CG](https://rsshub.app/papers/category/arxiv/cs.CG)     | [arxiv/cs.GT](https://rsshub.app/papers/category/arxiv/cs.GT)               | [arxiv/cs.CV](https://rsshub.app/papers/category/arxiv/cs.CV)                      | [arxiv/cs.CY](https://rsshub.app/papers/category/arxiv/cs.CY)    | [arxiv/cs.CR](https://rsshub.app/papers/category/arxiv/cs.CR)        |\n\n| [Data Structures and Algorithms (cs.DS)](https://papers.cool/arxiv/cs.DS) | [Databases (cs.DB)](https://papers.cool/arxiv/cs.DB)          | [Digital Libraries (cs.DL)](https://papers.cool/arxiv/cs.DL)  | [Discrete Mathematics (cs.DM)](https://papers.cool/arxiv/cs.DM) | [Distributed, Parallel, and Cluster Computing (cs.DC)](https://papers.cool/arxiv/cs.DC) |\n| ------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------------------------------- |\n| [arxiv/cs.DS](https://rsshub.app/papers/category/arxiv/cs.DS)             | [arxiv/cs.DB](https://rsshub.app/papers/category/arxiv/cs.DB) | [arxiv/cs.DL](https://rsshub.app/papers/category/arxiv/cs.DL) | [arxiv/cs.DM](https://rsshub.app/papers/category/arxiv/cs.DM)   | [arxiv/cs.DC](https://rsshub.app/papers/category/arxiv/cs.DC)                           |\n\n| [Emerging Technologies (cs.ET)](https://papers.cool/arxiv/cs.ET) | [Formal Languages and Automata Theory (cs.FL)](https://papers.cool/arxiv/cs.FL) | [General Literature (cs.GL)](https://papers.cool/arxiv/cs.GL) | [Graphics (cs.GR)](https://papers.cool/arxiv/cs.GR)           | [Hardware Architecture (cs.AR)](https://papers.cool/arxiv/cs.AR) |\n| ---------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------- |\n| [arxiv/cs.ET](https://rsshub.app/papers/category/arxiv/cs.ET)    | [arxiv/cs.FL](https://rsshub.app/papers/category/arxiv/cs.FL)                   | [arxiv/cs.GL](https://rsshub.app/papers/category/arxiv/cs.GL) | [arxiv/cs.GR](https://rsshub.app/papers/category/arxiv/cs.GR) | [arxiv/cs.AR](https://rsshub.app/papers/category/arxiv/cs.AR)    |\n\n| [Human-Computer Interaction (cs.HC)](https://papers.cool/arxiv/cs.HC) | [Information Retrieval (cs.IR)](https://papers.cool/arxiv/cs.IR) | [Information Theory (cs.IT)](https://papers.cool/arxiv/cs.IT) | [Logic in Computer Science (cs.LO)](https://papers.cool/arxiv/cs.LO) | [Machine Learning (cs.LG)](https://papers.cool/arxiv/cs.LG)   |\n| --------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------- |\n| [arxiv/cs.HC](https://rsshub.app/papers/category/arxiv/cs.HC)         | [arxiv/cs.IR](https://rsshub.app/papers/category/arxiv/cs.IR)    | [arxiv/cs.IT](https://rsshub.app/papers/category/arxiv/cs.IT) | [arxiv/cs.LO](https://rsshub.app/papers/category/arxiv/cs.LO)        | [arxiv/cs.LG](https://rsshub.app/papers/category/arxiv/cs.LG) |\n\n| [Mathematical Software (cs.MS)](https://papers.cool/arxiv/cs.MS) | [Multiagent Systems (cs.MA)](https://papers.cool/arxiv/cs.MA) | [Multimedia (cs.MM)](https://papers.cool/arxiv/cs.MM)         | [Networking and Internet Architecture (cs.NI)](https://papers.cool/arxiv/cs.NI) | [Neural and Evolutionary Computing (cs.NE)](https://papers.cool/arxiv/cs.NE) |\n| ---------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |\n| [arxiv/cs.MS](https://rsshub.app/papers/category/arxiv/cs.MS)    | [arxiv/cs.MA](https://rsshub.app/papers/category/arxiv/cs.MA) | [arxiv/cs.MM](https://rsshub.app/papers/category/arxiv/cs.MM) | [arxiv/cs.NI](https://rsshub.app/papers/category/arxiv/cs.NI)                   | [arxiv/cs.NE](https://rsshub.app/papers/category/arxiv/cs.NE)                |\n\n| [Numerical Analysis (cs.NA)](https://papers.cool/arxiv/cs.NA) | [Operating Systems (cs.OS)](https://papers.cool/arxiv/cs.OS)  | [Other Computer Science (cs.OH)](https://papers.cool/arxiv/cs.OH) | [Performance (cs.PF)](https://papers.cool/arxiv/cs.PF)        | [Programming Languages (cs.PL)](https://papers.cool/arxiv/cs.PL) |\n| ------------------------------------------------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------- |\n| [arxiv/cs.NA](https://rsshub.app/papers/category/arxiv/cs.NA) | [arxiv/cs.OS](https://rsshub.app/papers/category/arxiv/cs.OS) | [arxiv/cs.OH](https://rsshub.app/papers/category/arxiv/cs.OH)     | [arxiv/cs.PF](https://rsshub.app/papers/category/arxiv/cs.PF) | [arxiv/cs.PL](https://rsshub.app/papers/category/arxiv/cs.PL)    |\n\n| [Robotics (cs.RO)](https://papers.cool/arxiv/cs.RO)           | [Social and Information Networks (cs.SI)](https://papers.cool/arxiv/cs.SI) | [Software Engineering (cs.SE)](https://papers.cool/arxiv/cs.SE) | [Sound (cs.SD)](https://papers.cool/arxiv/cs.SD)              | [Symbolic Computation (cs.SC)](https://papers.cool/arxiv/cs.SC) |\n| ------------------------------------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------------------------------- |\n| [arxiv/cs.RO](https://rsshub.app/papers/category/arxiv/cs.RO) | [arxiv/cs.SI](https://rsshub.app/papers/category/arxiv/cs.SI)              | [arxiv/cs.SE](https://rsshub.app/papers/category/arxiv/cs.SE)   | [arxiv/cs.SD](https://rsshub.app/papers/category/arxiv/cs.SD) | [arxiv/cs.SC](https://rsshub.app/papers/category/arxiv/cs.SC)   |\n\n| [Systems and Control (cs.SY)](https://papers.cool/arxiv/cs.SY) |\n| -------------------------------------------------------------- |\n| [arxiv/cs.SY](https://rsshub.app/papers/category/arxiv/cs.SY)  |\n\n#### [Quantitative Biology (q-bio)](https://papers.cool/arxiv/q-bio)\n\n| [Quantitative Biology (q-bio)](https://papers.cool/arxiv/q-bio) | [Biomolecules (q-bio.BM)](https://papers.cool/arxiv/q-bio.BM)       | [Cell Behavior (q-bio.CB)](https://papers.cool/arxiv/q-bio.CB)      | [Genomics (q-bio.GN)](https://papers.cool/arxiv/q-bio.GN)           | [Molecular Networks (q-bio.MN)](https://papers.cool/arxiv/q-bio.MN) |\n| --------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |\n| [arxiv/q-bio](https://rsshub.app/papers/category/arxiv/q-bio)   | [arxiv/q-bio.BM](https://rsshub.app/papers/category/arxiv/q-bio.BM) | [arxiv/q-bio.CB](https://rsshub.app/papers/category/arxiv/q-bio.CB) | [arxiv/q-bio.GN](https://rsshub.app/papers/category/arxiv/q-bio.GN) | [arxiv/q-bio.MN](https://rsshub.app/papers/category/arxiv/q-bio.MN) |\n\n| [Neurons and Cognition (q-bio.NC)](https://papers.cool/arxiv/q-bio.NC) | [Other Quantitative Biology (q-bio.OT)](https://papers.cool/arxiv/q-bio.OT) | [Populations and Evolution (q-bio.PE)](https://papers.cool/arxiv/q-bio.PE) | [Quantitative Methods (q-bio.QM)](https://papers.cool/arxiv/q-bio.QM) | [Subcellular Processes (q-bio.SC)](https://papers.cool/arxiv/q-bio.SC) |\n| ---------------------------------------------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------- |\n| [arxiv/q-bio.NC](https://rsshub.app/papers/category/arxiv/q-bio.NC)    | [arxiv/q-bio.OT](https://rsshub.app/papers/category/arxiv/q-bio.OT)         | [arxiv/q-bio.PE](https://rsshub.app/papers/category/arxiv/q-bio.PE)        | [arxiv/q-bio.QM](https://rsshub.app/papers/category/arxiv/q-bio.QM)   | [arxiv/q-bio.SC](https://rsshub.app/papers/category/arxiv/q-bio.SC)    |\n\n| [Tissues and Organs (q-bio.TO)](https://papers.cool/arxiv/q-bio.TO) |\n| ------------------------------------------------------------------- |\n| [arxiv/q-bio.TO](https://rsshub.app/papers/category/arxiv/q-bio.TO) |\n\n#### [Quantitative Finance (q-fin)](https://papers.cool/arxiv/q-fin)\n\n| [Quantitative Finance (q-fin)](https://papers.cool/arxiv/q-fin) | [Computational Finance (q-fin.CP)](https://papers.cool/arxiv/q-fin.CP) | [Economics (q-fin.EC)](https://papers.cool/arxiv/q-fin.EC)          | [General Finance (q-fin.GN)](https://papers.cool/arxiv/q-fin.GN)    | [Mathematical Finance (q-fin.MF)](https://papers.cool/arxiv/q-fin.MF) |\n| --------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------- |\n| [arxiv/q-fin](https://rsshub.app/papers/category/arxiv/q-fin)   | [arxiv/q-fin.CP](https://rsshub.app/papers/category/arxiv/q-fin.CP)    | [arxiv/q-fin.EC](https://rsshub.app/papers/category/arxiv/q-fin.EC) | [arxiv/q-fin.GN](https://rsshub.app/papers/category/arxiv/q-fin.GN) | [arxiv/q-fin.MF](https://rsshub.app/papers/category/arxiv/q-fin.MF)   |\n\n| [Portfolio Management (q-fin.PM)](https://papers.cool/arxiv/q-fin.PM) | [Pricing of Securities (q-fin.PR)](https://papers.cool/arxiv/q-fin.PR) | [Risk Management (q-fin.RM)](https://papers.cool/arxiv/q-fin.RM)    | [Statistical Finance (q-fin.ST)](https://papers.cool/arxiv/q-fin.ST) | [Trading and Market Microstructure (q-fin.TR)](https://papers.cool/arxiv/q-fin.TR) |\n| --------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |\n| [arxiv/q-fin.PM](https://rsshub.app/papers/category/arxiv/q-fin.PM)   | [arxiv/q-fin.PR](https://rsshub.app/papers/category/arxiv/q-fin.PR)    | [arxiv/q-fin.RM](https://rsshub.app/papers/category/arxiv/q-fin.RM) | [arxiv/q-fin.ST](https://rsshub.app/papers/category/arxiv/q-fin.ST)  | [arxiv/q-fin.TR](https://rsshub.app/papers/category/arxiv/q-fin.TR)                |\n\n#### [Statistics (stat)](https://papers.cool/arxiv/stat)\n\n| [Statistics (stat)](https://papers.cool/arxiv/stat)         | [Applications (stat.AP)](https://papers.cool/arxiv/stat.AP)       | [Computation (stat.CO)](https://papers.cool/arxiv/stat.CO)        | [Machine Learning (stat.ML)](https://papers.cool/arxiv/stat.ML)   | [Methodology (stat.ME)](https://papers.cool/arxiv/stat.ME)        |\n| ----------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |\n| [arxiv/stat](https://rsshub.app/papers/category/arxiv/stat) | [arxiv/stat.AP](https://rsshub.app/papers/category/arxiv/stat.AP) | [arxiv/stat.CO](https://rsshub.app/papers/category/arxiv/stat.CO) | [arxiv/stat.ML](https://rsshub.app/papers/category/arxiv/stat.ML) | [arxiv/stat.ME](https://rsshub.app/papers/category/arxiv/stat.ME) |\n\n| [Other Statistics (stat.OT)](https://papers.cool/arxiv/stat.OT)   | [Statistics Theory (stat.TH)](https://papers.cool/arxiv/stat.TH)  |\n| ----------------------------------------------------------------- | ----------------------------------------------------------------- |\n| [arxiv/stat.OT](https://rsshub.app/papers/category/arxiv/stat.OT) | [arxiv/stat.TH](https://rsshub.app/papers/category/arxiv/stat.TH) |\n\n#### [Electrical Engineering and Systems Science (eess)](https://papers.cool/arxiv/eess)\n\n| [Electrical Engineering and Systems Science (eess)](https://papers.cool/arxiv/eess) | [Audio and Speech Processing (eess.AS)](https://papers.cool/arxiv/eess.AS) | [Image and Video Processing (eess.IV)](https://papers.cool/arxiv/eess.IV) | [Signal Processing (eess.SP)](https://papers.cool/arxiv/eess.SP)  | [Systems and Control (eess.SY)](https://papers.cool/arxiv/eess.SY) |\n| ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------- | ------------------------------------------------------------------ |\n| [arxiv/eess](https://rsshub.app/papers/category/arxiv/eess)                         | [arxiv/eess.AS](https://rsshub.app/papers/category/arxiv/eess.AS)          | [arxiv/eess.IV](https://rsshub.app/papers/category/arxiv/eess.IV)         | [arxiv/eess.SP](https://rsshub.app/papers/category/arxiv/eess.SP) | [arxiv/eess.SY](https://rsshub.app/papers/category/arxiv/eess.SY)  |\n\n#### [Economics (econ)](https://papers.cool/arxiv/econ)\n\n| [Economics (econ)](https://papers.cool/arxiv/econ)          | [Econometrics (econ.EM)](https://papers.cool/arxiv/econ.EM)       | [General Economics (econ.GN)](https://papers.cool/arxiv/econ.GN)  | [Theoretical Economics (econ.TH)](https://papers.cool/arxiv/econ.TH) |\n| ----------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------- |\n| [arxiv/econ](https://rsshub.app/papers/category/arxiv/econ) | [arxiv/econ.EM](https://rsshub.app/papers/category/arxiv/econ.EM) | [arxiv/econ.GN](https://rsshub.app/papers/category/arxiv/econ.GN) | [arxiv/econ.TH](https://rsshub.app/papers/category/arxiv/econ.TH)    |\n\n</details>\n",
         "categories": [
           "journal"
         ],
@@ -67551,42 +68742,1191 @@
         },
         "radar": [
           {
-            "title": "arXiv Artificial Intelligence (cs.AI)",
+            "source": [
+              "papers.cool/:id{.+}"
+            ],
+            "target": "/category/:id"
+          },
+          {
+            "title": "Astrophysics (astro-ph)",
+            "source": [
+              "papers.cool/arxiv/astro-ph"
+            ],
+            "target": "/category/arxiv/astro-ph"
+          },
+          {
+            "title": "Astrophysics of Galaxies (astro-ph.GA)",
+            "source": [
+              "papers.cool/arxiv/astro-ph.GA"
+            ],
+            "target": "/category/arxiv/astro-ph.GA"
+          },
+          {
+            "title": "Cosmology and Nongalactic Astrophysics (astro-ph.CO)",
+            "source": [
+              "papers.cool/arxiv/astro-ph.CO"
+            ],
+            "target": "/category/arxiv/astro-ph.CO"
+          },
+          {
+            "title": "Earth and Planetary Astrophysics (astro-ph.EP)",
+            "source": [
+              "papers.cool/arxiv/astro-ph.EP"
+            ],
+            "target": "/category/arxiv/astro-ph.EP"
+          },
+          {
+            "title": "High Energy Astrophysical Phenomena (astro-ph.HE)",
+            "source": [
+              "papers.cool/arxiv/astro-ph.HE"
+            ],
+            "target": "/category/arxiv/astro-ph.HE"
+          },
+          {
+            "title": "Instrumentation and Methods for Astrophysics (astro-ph.IM)",
+            "source": [
+              "papers.cool/arxiv/astro-ph.IM"
+            ],
+            "target": "/category/arxiv/astro-ph.IM"
+          },
+          {
+            "title": "Solar and Stellar Astrophysics (astro-ph.SR)",
+            "source": [
+              "papers.cool/arxiv/astro-ph.SR"
+            ],
+            "target": "/category/arxiv/astro-ph.SR"
+          },
+          {
+            "title": "Condensed Matter (cond-mat)",
+            "source": [
+              "papers.cool/arxiv/cond-mat"
+            ],
+            "target": "/category/arxiv/cond-mat"
+          },
+          {
+            "title": "Disordered Systems and Neural Networks (cond-mat.dis-nn)",
+            "source": [
+              "papers.cool/arxiv/cond-mat.dis-nn"
+            ],
+            "target": "/category/arxiv/cond-mat.dis-nn"
+          },
+          {
+            "title": "Materials Science (cond-mat.mtrl-sci)",
+            "source": [
+              "papers.cool/arxiv/cond-mat.mtrl-sci"
+            ],
+            "target": "/category/arxiv/cond-mat.mtrl-sci"
+          },
+          {
+            "title": "Mesoscale and Nanoscale Physics (cond-mat.mes-hall)",
+            "source": [
+              "papers.cool/arxiv/cond-mat.mes-hall"
+            ],
+            "target": "/category/arxiv/cond-mat.mes-hall"
+          },
+          {
+            "title": "Other Condensed Matter (cond-mat.other)",
+            "source": [
+              "papers.cool/arxiv/cond-mat.other"
+            ],
+            "target": "/category/arxiv/cond-mat.other"
+          },
+          {
+            "title": "Quantum Gases (cond-mat.quant-gas)",
+            "source": [
+              "papers.cool/arxiv/cond-mat.quant-gas"
+            ],
+            "target": "/category/arxiv/cond-mat.quant-gas"
+          },
+          {
+            "title": "Soft Condensed Matter (cond-mat.soft)",
+            "source": [
+              "papers.cool/arxiv/cond-mat.soft"
+            ],
+            "target": "/category/arxiv/cond-mat.soft"
+          },
+          {
+            "title": "Statistical Mechanics (cond-mat.stat-mech)",
+            "source": [
+              "papers.cool/arxiv/cond-mat.stat-mech"
+            ],
+            "target": "/category/arxiv/cond-mat.stat-mech"
+          },
+          {
+            "title": "Strongly Correlated Electrons (cond-mat.str-el)",
+            "source": [
+              "papers.cool/arxiv/cond-mat.str-el"
+            ],
+            "target": "/category/arxiv/cond-mat.str-el"
+          },
+          {
+            "title": "Superconductivity (cond-mat.supr-con)",
+            "source": [
+              "papers.cool/arxiv/cond-mat.supr-con"
+            ],
+            "target": "/category/arxiv/cond-mat.supr-con"
+          },
+          {
+            "title": "General Relativity and Quantum Cosmology (gr-qc)",
+            "source": [
+              "papers.cool/arxiv/gr-qc"
+            ],
+            "target": "/category/arxiv/gr-qc"
+          },
+          {
+            "title": "High Energy Physics - Experiment (hep-ex)",
+            "source": [
+              "papers.cool/arxiv/hep-ex"
+            ],
+            "target": "/category/arxiv/hep-ex"
+          },
+          {
+            "title": "High Energy Physics - Lattice (hep-lat)",
+            "source": [
+              "papers.cool/arxiv/hep-lat"
+            ],
+            "target": "/category/arxiv/hep-lat"
+          },
+          {
+            "title": "High Energy Physics - Phenomenology (hep-ph)",
+            "source": [
+              "papers.cool/arxiv/hep-ph"
+            ],
+            "target": "/category/arxiv/hep-ph"
+          },
+          {
+            "title": "High Energy Physics - Theory (hep-th)",
+            "source": [
+              "papers.cool/arxiv/hep-th"
+            ],
+            "target": "/category/arxiv/hep-th"
+          },
+          {
+            "title": "Mathematical Physics (math-ph)",
+            "source": [
+              "papers.cool/arxiv/math-ph"
+            ],
+            "target": "/category/arxiv/math-ph"
+          },
+          {
+            "title": "Nonlinear Sciences (nlin)",
+            "source": [
+              "papers.cool/arxiv/nlin"
+            ],
+            "target": "/category/arxiv/nlin"
+          },
+          {
+            "title": "Adaptation and Self-Organizing Systems (nlin.AO)",
+            "source": [
+              "papers.cool/arxiv/nlin.AO"
+            ],
+            "target": "/category/arxiv/nlin.AO"
+          },
+          {
+            "title": "Cellular Automata and Lattice Gases (nlin.CG)",
+            "source": [
+              "papers.cool/arxiv/nlin.CG"
+            ],
+            "target": "/category/arxiv/nlin.CG"
+          },
+          {
+            "title": "Chaotic Dynamics (nlin.CD)",
+            "source": [
+              "papers.cool/arxiv/nlin.CD"
+            ],
+            "target": "/category/arxiv/nlin.CD"
+          },
+          {
+            "title": "Exactly Solvable and Integrable Systems (nlin.SI)",
+            "source": [
+              "papers.cool/arxiv/nlin.SI"
+            ],
+            "target": "/category/arxiv/nlin.SI"
+          },
+          {
+            "title": "Pattern Formation and Solitons (nlin.PS)",
+            "source": [
+              "papers.cool/arxiv/nlin.PS"
+            ],
+            "target": "/category/arxiv/nlin.PS"
+          },
+          {
+            "title": "Nuclear Experiment (nucl-ex)",
+            "source": [
+              "papers.cool/arxiv/nucl-ex"
+            ],
+            "target": "/category/arxiv/nucl-ex"
+          },
+          {
+            "title": "Nuclear Theory (nucl-th)",
+            "source": [
+              "papers.cool/arxiv/nucl-th"
+            ],
+            "target": "/category/arxiv/nucl-th"
+          },
+          {
+            "title": "Physics (physics)",
+            "source": [
+              "papers.cool/arxiv/physics"
+            ],
+            "target": "/category/arxiv/physics"
+          },
+          {
+            "title": "Accelerator Physics (physics.acc-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.acc-ph"
+            ],
+            "target": "/category/arxiv/physics.acc-ph"
+          },
+          {
+            "title": "Applied Physics (physics.app-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.app-ph"
+            ],
+            "target": "/category/arxiv/physics.app-ph"
+          },
+          {
+            "title": "Atmospheric and Oceanic Physics (physics.ao-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.ao-ph"
+            ],
+            "target": "/category/arxiv/physics.ao-ph"
+          },
+          {
+            "title": "Atomic and Molecular Clusters (physics.atm-clus)",
+            "source": [
+              "papers.cool/arxiv/physics.atm-clus"
+            ],
+            "target": "/category/arxiv/physics.atm-clus"
+          },
+          {
+            "title": "Atomic Physics (physics.atom-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.atom-ph"
+            ],
+            "target": "/category/arxiv/physics.atom-ph"
+          },
+          {
+            "title": "Biological Physics (physics.bio-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.bio-ph"
+            ],
+            "target": "/category/arxiv/physics.bio-ph"
+          },
+          {
+            "title": "Chemical Physics (physics.chem-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.chem-ph"
+            ],
+            "target": "/category/arxiv/physics.chem-ph"
+          },
+          {
+            "title": "Classical Physics (physics.class-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.class-ph"
+            ],
+            "target": "/category/arxiv/physics.class-ph"
+          },
+          {
+            "title": "Computational Physics (physics.comp-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.comp-ph"
+            ],
+            "target": "/category/arxiv/physics.comp-ph"
+          },
+          {
+            "title": "Data Analysis, Statistics and Probability (physics.data-an)",
+            "source": [
+              "papers.cool/arxiv/physics.data-an"
+            ],
+            "target": "/category/arxiv/physics.data-an"
+          },
+          {
+            "title": "Fluid Dynamics (physics.flu-dyn)",
+            "source": [
+              "papers.cool/arxiv/physics.flu-dyn"
+            ],
+            "target": "/category/arxiv/physics.flu-dyn"
+          },
+          {
+            "title": "General Physics (physics.gen-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.gen-ph"
+            ],
+            "target": "/category/arxiv/physics.gen-ph"
+          },
+          {
+            "title": "Geophysics (physics.geo-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.geo-ph"
+            ],
+            "target": "/category/arxiv/physics.geo-ph"
+          },
+          {
+            "title": "History and Philosophy of Physics (physics.hist-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.hist-ph"
+            ],
+            "target": "/category/arxiv/physics.hist-ph"
+          },
+          {
+            "title": "Instrumentation and Detectors (physics.ins-det)",
+            "source": [
+              "papers.cool/arxiv/physics.ins-det"
+            ],
+            "target": "/category/arxiv/physics.ins-det"
+          },
+          {
+            "title": "Medical Physics (physics.med-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.med-ph"
+            ],
+            "target": "/category/arxiv/physics.med-ph"
+          },
+          {
+            "title": "Optics (physics.optics)",
+            "source": [
+              "papers.cool/arxiv/physics.optics"
+            ],
+            "target": "/category/arxiv/physics.optics"
+          },
+          {
+            "title": "Physics and Society (physics.soc-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.soc-ph"
+            ],
+            "target": "/category/arxiv/physics.soc-ph"
+          },
+          {
+            "title": "Physics Education (physics.ed-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.ed-ph"
+            ],
+            "target": "/category/arxiv/physics.ed-ph"
+          },
+          {
+            "title": "Plasma Physics (physics.plasm-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.plasm-ph"
+            ],
+            "target": "/category/arxiv/physics.plasm-ph"
+          },
+          {
+            "title": "Popular Physics (physics.pop-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.pop-ph"
+            ],
+            "target": "/category/arxiv/physics.pop-ph"
+          },
+          {
+            "title": "Space Physics (physics.space-ph)",
+            "source": [
+              "papers.cool/arxiv/physics.space-ph"
+            ],
+            "target": "/category/arxiv/physics.space-ph"
+          },
+          {
+            "title": "Quantum Physics (quant-ph)",
+            "source": [
+              "papers.cool/arxiv/quant-ph"
+            ],
+            "target": "/category/arxiv/quant-ph"
+          },
+          {
+            "title": "Mathematics (math)",
+            "source": [
+              "papers.cool/arxiv/math"
+            ],
+            "target": "/category/arxiv/math"
+          },
+          {
+            "title": "Algebraic Geometry (math.AG)",
+            "source": [
+              "papers.cool/arxiv/math.AG"
+            ],
+            "target": "/category/arxiv/math.AG"
+          },
+          {
+            "title": "Algebraic Topology (math.AT)",
+            "source": [
+              "papers.cool/arxiv/math.AT"
+            ],
+            "target": "/category/arxiv/math.AT"
+          },
+          {
+            "title": "Analysis of PDEs (math.AP)",
+            "source": [
+              "papers.cool/arxiv/math.AP"
+            ],
+            "target": "/category/arxiv/math.AP"
+          },
+          {
+            "title": "Category Theory (math.CT)",
+            "source": [
+              "papers.cool/arxiv/math.CT"
+            ],
+            "target": "/category/arxiv/math.CT"
+          },
+          {
+            "title": "Classical Analysis and ODEs (math.CA)",
+            "source": [
+              "papers.cool/arxiv/math.CA"
+            ],
+            "target": "/category/arxiv/math.CA"
+          },
+          {
+            "title": "Combinatorics (math.CO)",
+            "source": [
+              "papers.cool/arxiv/math.CO"
+            ],
+            "target": "/category/arxiv/math.CO"
+          },
+          {
+            "title": "Commutative Algebra (math.AC)",
+            "source": [
+              "papers.cool/arxiv/math.AC"
+            ],
+            "target": "/category/arxiv/math.AC"
+          },
+          {
+            "title": "Complex Variables (math.CV)",
+            "source": [
+              "papers.cool/arxiv/math.CV"
+            ],
+            "target": "/category/arxiv/math.CV"
+          },
+          {
+            "title": "Differential Geometry (math.DG)",
+            "source": [
+              "papers.cool/arxiv/math.DG"
+            ],
+            "target": "/category/arxiv/math.DG"
+          },
+          {
+            "title": "Dynamical Systems (math.DS)",
+            "source": [
+              "papers.cool/arxiv/math.DS"
+            ],
+            "target": "/category/arxiv/math.DS"
+          },
+          {
+            "title": "Functional Analysis (math.FA)",
+            "source": [
+              "papers.cool/arxiv/math.FA"
+            ],
+            "target": "/category/arxiv/math.FA"
+          },
+          {
+            "title": "General Mathematics (math.GM)",
+            "source": [
+              "papers.cool/arxiv/math.GM"
+            ],
+            "target": "/category/arxiv/math.GM"
+          },
+          {
+            "title": "General Topology (math.GN)",
+            "source": [
+              "papers.cool/arxiv/math.GN"
+            ],
+            "target": "/category/arxiv/math.GN"
+          },
+          {
+            "title": "Geometric Topology (math.GT)",
+            "source": [
+              "papers.cool/arxiv/math.GT"
+            ],
+            "target": "/category/arxiv/math.GT"
+          },
+          {
+            "title": "Group Theory (math.GR)",
+            "source": [
+              "papers.cool/arxiv/math.GR"
+            ],
+            "target": "/category/arxiv/math.GR"
+          },
+          {
+            "title": "History and Overview (math.HO)",
+            "source": [
+              "papers.cool/arxiv/math.HO"
+            ],
+            "target": "/category/arxiv/math.HO"
+          },
+          {
+            "title": "Information Theory (math.IT)",
+            "source": [
+              "papers.cool/arxiv/math.IT"
+            ],
+            "target": "/category/arxiv/math.IT"
+          },
+          {
+            "title": "K-Theory and Homology (math.KT)",
+            "source": [
+              "papers.cool/arxiv/math.KT"
+            ],
+            "target": "/category/arxiv/math.KT"
+          },
+          {
+            "title": "Logic (math.LO)",
+            "source": [
+              "papers.cool/arxiv/math.LO"
+            ],
+            "target": "/category/arxiv/math.LO"
+          },
+          {
+            "title": "Mathematical Physics (math.MP)",
+            "source": [
+              "papers.cool/arxiv/math.MP"
+            ],
+            "target": "/category/arxiv/math.MP"
+          },
+          {
+            "title": "Metric Geometry (math.MG)",
+            "source": [
+              "papers.cool/arxiv/math.MG"
+            ],
+            "target": "/category/arxiv/math.MG"
+          },
+          {
+            "title": "Number Theory (math.NT)",
+            "source": [
+              "papers.cool/arxiv/math.NT"
+            ],
+            "target": "/category/arxiv/math.NT"
+          },
+          {
+            "title": "Numerical Analysis (math.NA)",
+            "source": [
+              "papers.cool/arxiv/math.NA"
+            ],
+            "target": "/category/arxiv/math.NA"
+          },
+          {
+            "title": "Operator Algebras (math.OA)",
+            "source": [
+              "papers.cool/arxiv/math.OA"
+            ],
+            "target": "/category/arxiv/math.OA"
+          },
+          {
+            "title": "Optimization and Control (math.OC)",
+            "source": [
+              "papers.cool/arxiv/math.OC"
+            ],
+            "target": "/category/arxiv/math.OC"
+          },
+          {
+            "title": "Probability (math.PR)",
+            "source": [
+              "papers.cool/arxiv/math.PR"
+            ],
+            "target": "/category/arxiv/math.PR"
+          },
+          {
+            "title": "Quantum Algebra (math.QA)",
+            "source": [
+              "papers.cool/arxiv/math.QA"
+            ],
+            "target": "/category/arxiv/math.QA"
+          },
+          {
+            "title": "Representation Theory (math.RT)",
+            "source": [
+              "papers.cool/arxiv/math.RT"
+            ],
+            "target": "/category/arxiv/math.RT"
+          },
+          {
+            "title": "Rings and Algebras (math.RA)",
+            "source": [
+              "papers.cool/arxiv/math.RA"
+            ],
+            "target": "/category/arxiv/math.RA"
+          },
+          {
+            "title": "Spectral Theory (math.SP)",
+            "source": [
+              "papers.cool/arxiv/math.SP"
+            ],
+            "target": "/category/arxiv/math.SP"
+          },
+          {
+            "title": "Statistics Theory (math.ST)",
+            "source": [
+              "papers.cool/arxiv/math.ST"
+            ],
+            "target": "/category/arxiv/math.ST"
+          },
+          {
+            "title": "Symplectic Geometry (math.SG)",
+            "source": [
+              "papers.cool/arxiv/math.SG"
+            ],
+            "target": "/category/arxiv/math.SG"
+          },
+          {
+            "title": "Computer Science (cs)",
+            "source": [
+              "papers.cool/arxiv/cs"
+            ],
+            "target": "/category/arxiv/cs"
+          },
+          {
+            "title": "Artificial Intelligence (cs.AI)",
             "source": [
               "papers.cool/arxiv/cs.AI"
             ],
-            "target": "/arxiv/cs.AI"
+            "target": "/category/arxiv/cs.AI"
           },
           {
-            "title": "arXiv Computation and Language (cs.CL)",
+            "title": "Computation and Language (cs.CL)",
             "source": [
               "papers.cool/arxiv/cs.CL"
             ],
-            "target": "/arxiv/cs.CL"
+            "target": "/category/arxiv/cs.CL"
           },
           {
-            "title": "arXiv Computer Vision and Pattern Recognition (cs.CV)",
+            "title": "Computational Complexity (cs.CC)",
+            "source": [
+              "papers.cool/arxiv/cs.CC"
+            ],
+            "target": "/category/arxiv/cs.CC"
+          },
+          {
+            "title": "Computational Engineering, Finance, and Science (cs.CE)",
+            "source": [
+              "papers.cool/arxiv/cs.CE"
+            ],
+            "target": "/category/arxiv/cs.CE"
+          },
+          {
+            "title": "Computational Geometry (cs.CG)",
+            "source": [
+              "papers.cool/arxiv/cs.CG"
+            ],
+            "target": "/category/arxiv/cs.CG"
+          },
+          {
+            "title": "Computer Science and Game Theory (cs.GT)",
+            "source": [
+              "papers.cool/arxiv/cs.GT"
+            ],
+            "target": "/category/arxiv/cs.GT"
+          },
+          {
+            "title": "Computer Vision and Pattern Recognition (cs.CV)",
             "source": [
               "papers.cool/arxiv/cs.CV"
             ],
-            "target": "/arxiv/cs.CV"
+            "target": "/category/arxiv/cs.CV"
           },
           {
-            "title": "arXiv Machine Learning (cs.LG)",
+            "title": "Computers and Society (cs.CY)",
+            "source": [
+              "papers.cool/arxiv/cs.CY"
+            ],
+            "target": "/category/arxiv/cs.CY"
+          },
+          {
+            "title": "Cryptography and Security (cs.CR)",
+            "source": [
+              "papers.cool/arxiv/cs.CR"
+            ],
+            "target": "/category/arxiv/cs.CR"
+          },
+          {
+            "title": "Data Structures and Algorithms (cs.DS)",
+            "source": [
+              "papers.cool/arxiv/cs.DS"
+            ],
+            "target": "/category/arxiv/cs.DS"
+          },
+          {
+            "title": "Databases (cs.DB)",
+            "source": [
+              "papers.cool/arxiv/cs.DB"
+            ],
+            "target": "/category/arxiv/cs.DB"
+          },
+          {
+            "title": "Digital Libraries (cs.DL)",
+            "source": [
+              "papers.cool/arxiv/cs.DL"
+            ],
+            "target": "/category/arxiv/cs.DL"
+          },
+          {
+            "title": "Discrete Mathematics (cs.DM)",
+            "source": [
+              "papers.cool/arxiv/cs.DM"
+            ],
+            "target": "/category/arxiv/cs.DM"
+          },
+          {
+            "title": "Distributed, Parallel, and Cluster Computing (cs.DC)",
+            "source": [
+              "papers.cool/arxiv/cs.DC"
+            ],
+            "target": "/category/arxiv/cs.DC"
+          },
+          {
+            "title": "Emerging Technologies (cs.ET)",
+            "source": [
+              "papers.cool/arxiv/cs.ET"
+            ],
+            "target": "/category/arxiv/cs.ET"
+          },
+          {
+            "title": "Formal Languages and Automata Theory (cs.FL)",
+            "source": [
+              "papers.cool/arxiv/cs.FL"
+            ],
+            "target": "/category/arxiv/cs.FL"
+          },
+          {
+            "title": "General Literature (cs.GL)",
+            "source": [
+              "papers.cool/arxiv/cs.GL"
+            ],
+            "target": "/category/arxiv/cs.GL"
+          },
+          {
+            "title": "Graphics (cs.GR)",
+            "source": [
+              "papers.cool/arxiv/cs.GR"
+            ],
+            "target": "/category/arxiv/cs.GR"
+          },
+          {
+            "title": "Hardware Architecture (cs.AR)",
+            "source": [
+              "papers.cool/arxiv/cs.AR"
+            ],
+            "target": "/category/arxiv/cs.AR"
+          },
+          {
+            "title": "Human-Computer Interaction (cs.HC)",
+            "source": [
+              "papers.cool/arxiv/cs.HC"
+            ],
+            "target": "/category/arxiv/cs.HC"
+          },
+          {
+            "title": "Information Retrieval (cs.IR)",
+            "source": [
+              "papers.cool/arxiv/cs.IR"
+            ],
+            "target": "/category/arxiv/cs.IR"
+          },
+          {
+            "title": "Information Theory (cs.IT)",
+            "source": [
+              "papers.cool/arxiv/cs.IT"
+            ],
+            "target": "/category/arxiv/cs.IT"
+          },
+          {
+            "title": "Logic in Computer Science (cs.LO)",
+            "source": [
+              "papers.cool/arxiv/cs.LO"
+            ],
+            "target": "/category/arxiv/cs.LO"
+          },
+          {
+            "title": "Machine Learning (cs.LG)",
             "source": [
               "papers.cool/arxiv/cs.LG"
             ],
-            "target": "/arxiv/cs.LG"
+            "target": "/category/arxiv/cs.LG"
           },
           {
-            "title": "arXiv Robotics (cs.RO)",
+            "title": "Mathematical Software (cs.MS)",
+            "source": [
+              "papers.cool/arxiv/cs.MS"
+            ],
+            "target": "/category/arxiv/cs.MS"
+          },
+          {
+            "title": "Multiagent Systems (cs.MA)",
+            "source": [
+              "papers.cool/arxiv/cs.MA"
+            ],
+            "target": "/category/arxiv/cs.MA"
+          },
+          {
+            "title": "Multimedia (cs.MM)",
+            "source": [
+              "papers.cool/arxiv/cs.MM"
+            ],
+            "target": "/category/arxiv/cs.MM"
+          },
+          {
+            "title": "Networking and Internet Architecture (cs.NI)",
+            "source": [
+              "papers.cool/arxiv/cs.NI"
+            ],
+            "target": "/category/arxiv/cs.NI"
+          },
+          {
+            "title": "Neural and Evolutionary Computing (cs.NE)",
+            "source": [
+              "papers.cool/arxiv/cs.NE"
+            ],
+            "target": "/category/arxiv/cs.NE"
+          },
+          {
+            "title": "Numerical Analysis (cs.NA)",
+            "source": [
+              "papers.cool/arxiv/cs.NA"
+            ],
+            "target": "/category/arxiv/cs.NA"
+          },
+          {
+            "title": "Operating Systems (cs.OS)",
+            "source": [
+              "papers.cool/arxiv/cs.OS"
+            ],
+            "target": "/category/arxiv/cs.OS"
+          },
+          {
+            "title": "Other Computer Science (cs.OH)",
+            "source": [
+              "papers.cool/arxiv/cs.OH"
+            ],
+            "target": "/category/arxiv/cs.OH"
+          },
+          {
+            "title": "Performance (cs.PF)",
+            "source": [
+              "papers.cool/arxiv/cs.PF"
+            ],
+            "target": "/category/arxiv/cs.PF"
+          },
+          {
+            "title": "Programming Languages (cs.PL)",
+            "source": [
+              "papers.cool/arxiv/cs.PL"
+            ],
+            "target": "/category/arxiv/cs.PL"
+          },
+          {
+            "title": "Robotics (cs.RO)",
             "source": [
               "papers.cool/arxiv/cs.RO"
             ],
-            "target": "/arxiv/cs.RO"
+            "target": "/category/arxiv/cs.RO"
+          },
+          {
+            "title": "Social and Information Networks (cs.SI)",
+            "source": [
+              "papers.cool/arxiv/cs.SI"
+            ],
+            "target": "/category/arxiv/cs.SI"
+          },
+          {
+            "title": "Software Engineering (cs.SE)",
+            "source": [
+              "papers.cool/arxiv/cs.SE"
+            ],
+            "target": "/category/arxiv/cs.SE"
+          },
+          {
+            "title": "Sound (cs.SD)",
+            "source": [
+              "papers.cool/arxiv/cs.SD"
+            ],
+            "target": "/category/arxiv/cs.SD"
+          },
+          {
+            "title": "Symbolic Computation (cs.SC)",
+            "source": [
+              "papers.cool/arxiv/cs.SC"
+            ],
+            "target": "/category/arxiv/cs.SC"
+          },
+          {
+            "title": "Systems and Control (cs.SY)",
+            "source": [
+              "papers.cool/arxiv/cs.SY"
+            ],
+            "target": "/category/arxiv/cs.SY"
+          },
+          {
+            "title": "Quantitative Biology (q-bio)",
+            "source": [
+              "papers.cool/arxiv/q-bio"
+            ],
+            "target": "/category/arxiv/q-bio"
+          },
+          {
+            "title": "Biomolecules (q-bio.BM)",
+            "source": [
+              "papers.cool/arxiv/q-bio.BM"
+            ],
+            "target": "/category/arxiv/q-bio.BM"
+          },
+          {
+            "title": "Cell Behavior (q-bio.CB)",
+            "source": [
+              "papers.cool/arxiv/q-bio.CB"
+            ],
+            "target": "/category/arxiv/q-bio.CB"
+          },
+          {
+            "title": "Genomics (q-bio.GN)",
+            "source": [
+              "papers.cool/arxiv/q-bio.GN"
+            ],
+            "target": "/category/arxiv/q-bio.GN"
+          },
+          {
+            "title": "Molecular Networks (q-bio.MN)",
+            "source": [
+              "papers.cool/arxiv/q-bio.MN"
+            ],
+            "target": "/category/arxiv/q-bio.MN"
+          },
+          {
+            "title": "Neurons and Cognition (q-bio.NC)",
+            "source": [
+              "papers.cool/arxiv/q-bio.NC"
+            ],
+            "target": "/category/arxiv/q-bio.NC"
+          },
+          {
+            "title": "Other Quantitative Biology (q-bio.OT)",
+            "source": [
+              "papers.cool/arxiv/q-bio.OT"
+            ],
+            "target": "/category/arxiv/q-bio.OT"
+          },
+          {
+            "title": "Populations and Evolution (q-bio.PE)",
+            "source": [
+              "papers.cool/arxiv/q-bio.PE"
+            ],
+            "target": "/category/arxiv/q-bio.PE"
+          },
+          {
+            "title": "Quantitative Methods (q-bio.QM)",
+            "source": [
+              "papers.cool/arxiv/q-bio.QM"
+            ],
+            "target": "/category/arxiv/q-bio.QM"
+          },
+          {
+            "title": "Subcellular Processes (q-bio.SC)",
+            "source": [
+              "papers.cool/arxiv/q-bio.SC"
+            ],
+            "target": "/category/arxiv/q-bio.SC"
+          },
+          {
+            "title": "Tissues and Organs (q-bio.TO)",
+            "source": [
+              "papers.cool/arxiv/q-bio.TO"
+            ],
+            "target": "/category/arxiv/q-bio.TO"
+          },
+          {
+            "title": "Quantitative Finance (q-fin)",
+            "source": [
+              "papers.cool/arxiv/q-fin"
+            ],
+            "target": "/category/arxiv/q-fin"
+          },
+          {
+            "title": "Computational Finance (q-fin.CP)",
+            "source": [
+              "papers.cool/arxiv/q-fin.CP"
+            ],
+            "target": "/category/arxiv/q-fin.CP"
+          },
+          {
+            "title": "Economics (q-fin.EC)",
+            "source": [
+              "papers.cool/arxiv/q-fin.EC"
+            ],
+            "target": "/category/arxiv/q-fin.EC"
+          },
+          {
+            "title": "General Finance (q-fin.GN)",
+            "source": [
+              "papers.cool/arxiv/q-fin.GN"
+            ],
+            "target": "/category/arxiv/q-fin.GN"
+          },
+          {
+            "title": "Mathematical Finance (q-fin.MF)",
+            "source": [
+              "papers.cool/arxiv/q-fin.MF"
+            ],
+            "target": "/category/arxiv/q-fin.MF"
+          },
+          {
+            "title": "Portfolio Management (q-fin.PM)",
+            "source": [
+              "papers.cool/arxiv/q-fin.PM"
+            ],
+            "target": "/category/arxiv/q-fin.PM"
+          },
+          {
+            "title": "Pricing of Securities (q-fin.PR)",
+            "source": [
+              "papers.cool/arxiv/q-fin.PR"
+            ],
+            "target": "/category/arxiv/q-fin.PR"
+          },
+          {
+            "title": "Risk Management (q-fin.RM)",
+            "source": [
+              "papers.cool/arxiv/q-fin.RM"
+            ],
+            "target": "/category/arxiv/q-fin.RM"
+          },
+          {
+            "title": "Statistical Finance (q-fin.ST)",
+            "source": [
+              "papers.cool/arxiv/q-fin.ST"
+            ],
+            "target": "/category/arxiv/q-fin.ST"
+          },
+          {
+            "title": "Trading and Market Microstructure (q-fin.TR)",
+            "source": [
+              "papers.cool/arxiv/q-fin.TR"
+            ],
+            "target": "/category/arxiv/q-fin.TR"
+          },
+          {
+            "title": "Statistics (stat)",
+            "source": [
+              "papers.cool/arxiv/stat"
+            ],
+            "target": "/category/arxiv/stat"
+          },
+          {
+            "title": "Applications (stat.AP)",
+            "source": [
+              "papers.cool/arxiv/stat.AP"
+            ],
+            "target": "/category/arxiv/stat.AP"
+          },
+          {
+            "title": "Computation (stat.CO)",
+            "source": [
+              "papers.cool/arxiv/stat.CO"
+            ],
+            "target": "/category/arxiv/stat.CO"
+          },
+          {
+            "title": "Machine Learning (stat.ML)",
+            "source": [
+              "papers.cool/arxiv/stat.ML"
+            ],
+            "target": "/category/arxiv/stat.ML"
+          },
+          {
+            "title": "Methodology (stat.ME)",
+            "source": [
+              "papers.cool/arxiv/stat.ME"
+            ],
+            "target": "/category/arxiv/stat.ME"
+          },
+          {
+            "title": "Other Statistics (stat.OT)",
+            "source": [
+              "papers.cool/arxiv/stat.OT"
+            ],
+            "target": "/category/arxiv/stat.OT"
+          },
+          {
+            "title": "Statistics Theory (stat.TH)",
+            "source": [
+              "papers.cool/arxiv/stat.TH"
+            ],
+            "target": "/category/arxiv/stat.TH"
+          },
+          {
+            "title": "Electrical Engineering and Systems Science (eess)",
+            "source": [
+              "papers.cool/arxiv/eess"
+            ],
+            "target": "/category/arxiv/eess"
+          },
+          {
+            "title": "Audio and Speech Processing (eess.AS)",
+            "source": [
+              "papers.cool/arxiv/eess.AS"
+            ],
+            "target": "/category/arxiv/eess.AS"
+          },
+          {
+            "title": "Image and Video Processing (eess.IV)",
+            "source": [
+              "papers.cool/arxiv/eess.IV"
+            ],
+            "target": "/category/arxiv/eess.IV"
+          },
+          {
+            "title": "Signal Processing (eess.SP)",
+            "source": [
+              "papers.cool/arxiv/eess.SP"
+            ],
+            "target": "/category/arxiv/eess.SP"
+          },
+          {
+            "title": "Systems and Control (eess.SY)",
+            "source": [
+              "papers.cool/arxiv/eess.SY"
+            ],
+            "target": "/category/arxiv/eess.SY"
+          },
+          {
+            "title": "Economics (econ)",
+            "source": [
+              "papers.cool/arxiv/econ"
+            ],
+            "target": "/category/arxiv/econ"
+          },
+          {
+            "title": "Econometrics (econ.EM)",
+            "source": [
+              "papers.cool/arxiv/econ.EM"
+            ],
+            "target": "/category/arxiv/econ.EM"
+          },
+          {
+            "title": "General Economics (econ.GN)",
+            "source": [
+              "papers.cool/arxiv/econ.GN"
+            ],
+            "target": "/category/arxiv/econ.GN"
+          },
+          {
+            "title": "Theoretical Economics (econ.TH)",
+            "source": [
+              "papers.cool/arxiv/econ.TH"
+            ],
+            "target": "/category/arxiv/econ.TH"
           }
         ],
-        "location": "index.ts"
+        "view": 0,
+        "zh": {
+          "path": "/category/:id{.+}?",
+          "name": "Category",
+          "url": "papers.cool",
+          "maintainers": [
+            "nczitzk"
+          ],
+          "example": "/papers/arxiv/cs.AI",
+          "parameters": {
+            "id": {
+              "description": "分类 id，可在对应分类页 URL 中找到"
+            }
+          },
+          "description": ":::tip\n订阅 [人工智能 (cs.AI)](https://papers.cool/arxiv/cs.AI)（<https://papers.cool/arxiv/cs.AI>），请从 URL 中提取 `arxiv/cs.AI` 作为 `category` 参数，得到的路由将是 [`/papers/category/arxiv/cs.AI`](https://rsshub.app/papers/category/arxiv/cs.AI)。\n:::\n"
+        },
+        "location": "category.ts"
       },
       "/query/:keyword{.+}?": {
         "path": "/query/:keyword{.+}?",
@@ -68425,15 +70765,16 @@
   },
   "picnob": {
     "routes": {
-      "/user/:id": {
-        "path": "/user/:id",
+      "/user/:id/:type?": {
+        "path": "/user/:id/:type?",
         "categories": [
           "social-media",
           "popular"
         ],
         "example": "/picnob/user/xlisa_olivex",
         "parameters": {
-          "id": "Instagram id"
+          "id": "Instagram id",
+          "type": "Type of profile page (profile or tagged)"
         },
         "features": {
           "requireConfig": false,
@@ -68446,15 +70787,22 @@
         "radar": [
           {
             "source": [
-              "piokok.com/profile/:id/*"
+              "pixwox.com/profile/:id"
             ],
             "target": "/user/:id"
+          },
+          {
+            "source": [
+              "pixwox.com/profile/:id/tagged"
+            ],
+            "target": "/user/:id/tagged"
           }
         ],
         "name": "User Profile - Picnob",
         "maintainers": [
           "TonyRL",
-          "micheal-death"
+          "micheal-death",
+          "AiraNadih"
         ],
         "view": 2,
         "location": "user.ts"
@@ -70379,7 +72727,6 @@
           "other"
         ],
         "example": "/producthunt/today",
-        "parameters": {},
         "features": {
           "requireConfig": false,
           "requirePuppeteer": false,
@@ -70633,6 +72980,332 @@
     "name": "公視新聞網",
     "url": "news.pts.org.tw",
     "lang": "zh-TW"
+  },
+  "publico": {
+    "routes": {
+      "/ciencias/:subsection?": {
+        "path": "/ciencias/:subsection?",
+        "parameters": {
+          "subsection": {
+            "description": "Filter by subsection. Check the subsections available on the newspaper's website."
+          }
+        },
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/publico/ciencias",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": true,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "publico.es/ciencias"
+            ],
+            "target": "/ciencias"
+          }
+        ],
+        "name": "Ciencias",
+        "maintainers": [
+          "adrianrico97"
+        ],
+        "location": "ciencias.ts"
+      },
+      "/culturas/:subsection?": {
+        "path": "/culturas/:subsection?",
+        "parameters": {
+          "subsection": {
+            "description": "Filter by subsection. Check the subsections available on the newspaper's website."
+          }
+        },
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/publico/culturas",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": true,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "publico.es/culturas"
+            ],
+            "target": "/culturas"
+          }
+        ],
+        "name": "Culturas",
+        "maintainers": [
+          "adrianrico97"
+        ],
+        "location": "culturas.ts"
+      },
+      "/economia/:subsection?": {
+        "path": "/economia/:subsection?",
+        "parameters": {
+          "subsection": {
+            "description": "Filter by subsection. Check the subsections available on the newspaper's website."
+          }
+        },
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/publico/economia",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": true,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "publico.es/economia"
+            ],
+            "target": "/economia"
+          }
+        ],
+        "name": "Economia",
+        "maintainers": [
+          "adrianrico97"
+        ],
+        "location": "economia.ts"
+      },
+      "/internacional/:subsection?": {
+        "path": "/internacional/:subsection?",
+        "parameters": {
+          "subsection": {
+            "description": "Filter by subsection. Check the subsections available on the newspaper's website."
+          }
+        },
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/publico/internacional",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": true,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "publico.es/internacional"
+            ],
+            "target": "/internacional"
+          }
+        ],
+        "name": "Internacional",
+        "maintainers": [
+          "adrianrico97"
+        ],
+        "location": "internacional.ts"
+      },
+      "/mujer/:subsection?": {
+        "path": "/mujer/:subsection?",
+        "parameters": {
+          "subsection": {
+            "description": "Filter by subsection. Check the subsections available on the newspaper's website."
+          }
+        },
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/publico/mujer",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": true,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "publico.es/mujer"
+            ],
+            "target": "/mujer"
+          }
+        ],
+        "name": "Mujer",
+        "maintainers": [
+          "adrianrico97"
+        ],
+        "location": "mujer.ts"
+      },
+      "/opinion/:subsection?": {
+        "path": "/opinion/:subsection?",
+        "parameters": {
+          "subsection": {
+            "description": "Filter by subsection. Check the subsections available on the newspaper's website."
+          }
+        },
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/publico/opinion",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": true,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "publico.es/opinion"
+            ],
+            "target": "/opinion"
+          }
+        ],
+        "name": "Opinión",
+        "maintainers": [
+          "adrianrico97"
+        ],
+        "location": "opinion.ts"
+      },
+      "/politica/:subsection?": {
+        "path": "/politica/:subsection?",
+        "parameters": {
+          "subsection": {
+            "description": "Filter by subsection. Check the subsections available on the newspaper's website."
+          }
+        },
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/publico/politica",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": true,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "publico.es/politica"
+            ],
+            "target": "/politica"
+          }
+        ],
+        "name": "Política",
+        "maintainers": [
+          "adrianrico97"
+        ],
+        "location": "politica.ts"
+      },
+      "/public": {
+        "path": "/public",
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/publico/public",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": true,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "publico.es/public"
+            ],
+            "target": "/public"
+          }
+        ],
+        "name": "Public",
+        "maintainers": [
+          "adrianrico97"
+        ],
+        "location": "public.ts"
+      },
+      "/sociedad/:subsection?": {
+        "path": "/sociedad/:subsection?",
+        "parameters": {
+          "subsection": {
+            "description": "Filter by subsection. Check the subsections available on the newspaper's website."
+          }
+        },
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/publico/sociedad",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": true,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "publico.es/sociedad"
+            ],
+            "target": "/sociedad"
+          }
+        ],
+        "name": "Sociedad",
+        "maintainers": [
+          "adrianrico97"
+        ],
+        "location": "sociedad.ts"
+      },
+      "/tremending": {
+        "path": "/tremending",
+        "categories": [
+          "traditional-media"
+        ],
+        "example": "/publico/tremending",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": true,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "publico.es/tremending"
+            ],
+            "target": "/tremending"
+          }
+        ],
+        "name": "Tremending",
+        "maintainers": [
+          "adrianrico97"
+        ],
+        "location": "tremending.ts"
+      }
+    },
+    "name": "Público",
+    "url": "publico.es"
   },
   "pubmed": {
     "routes": {
@@ -82314,7 +84987,8 @@
         "name": "计算机与人工智能学院",
         "description": "本科生教育",
         "maintainers": [
-          "AzureG03"
+          "AzureG03",
+          "SuperJeason"
         ],
         "location": "scai/bks.ts"
       }
@@ -86126,6 +88800,37 @@
           }
         ],
         "location": "rule.ts"
+      },
+      "/disclosure/listed/notice": {
+        "path": "/disclosure/listed/notice",
+        "name": "上市公司公告",
+        "url": "www.szse.cn",
+        "maintainers": [
+          "nczitzk"
+        ],
+        "example": "/szse/disclosure/listed/notice",
+        "categories": [
+          "finance"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "www.szse.cn/disclosure/listed/notice/index.html"
+            ],
+            "target": "/disclosure/listed/notice"
+          }
+        ],
+        "view": 0,
+        "location": "disclosure/listed-notice.ts"
       }
     },
     "name": "深圳证券交易所",
@@ -93772,6 +96477,44 @@
     "description": "挖贝网专注于新三板、A股和港股报道",
     "lang": "zh-CN"
   },
+  "wainao": {
+    "routes": {
+      "/wainao-reads": {
+        "path": "/wainao-reads",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/wainao/wainao-reads",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "url": "www.wainao.me",
+        "name": "歪脑读",
+        "maintainers": [
+          "lucky13820"
+        ],
+        "radar": [
+          {
+            "source": [
+              "www.wainao.me",
+              "www.wainao.me/wainao-reads"
+            ],
+            "target": "/wainao-reads"
+          }
+        ],
+        "location": "wainao-reads.ts"
+      }
+    },
+    "name": "歪脑",
+    "url": "wainao.me",
+    "description": "歪脑是为讲中文的年轻一代度身定制的新闻杂志。",
+    "lang": "zh-CN"
+  },
   "wallhaven": {
     "routes": {
       "/search/:filter?/:needDetails?": {
@@ -94916,7 +97659,7 @@
     },
     "name": "微博",
     "url": "weibo.com",
-    "description": "::: warning\n微博会针对请求的来源地区返回不同的结果。一个已知的例子为：部分视频因未知原因仅限中国大陆境内访问 (CDN 域名为 `locallimit.us.sinaimg.cn` 而非 `f.video.weibocdn.com`)。若一条微博含有这种视频且 RSSHub 实例部署在境外，抓取到的微博可能不含视频。将 RSSHub 部署在境内有助于抓取这种视频，但阅读器也必须处于境内网络环境以加载视频。\n:::\n\n对于微博内容，在 `routeParams` 参数中以 query string 格式指定选项，可以控制输出的样式\n\n| 键                         | 含义                                                               | 接受的值       | 默认值                              |\n| -------------------------- | ------------------------------------------------------------------ | -------------- | ----------------------------------- |\n| readable                   | 是否开启细节排版可读性优化                                         | 0/1/true/false | false                               |\n| authorNameBold             | 是否加粗作者名字                                                   | 0/1/true/false | false                               |\n| showAuthorInTitle          | 是否在标题处显示作者                                               | 0/1/true/false | false（`/weibo/keyword/`中为 true） |\n| showAuthorInDesc           | 是否在正文处显示作者                                               | 0/1/true/false | false（`/weibo/keyword/`中为 true） |\n| showAuthorAvatarInDesc     | 是否在正文处显示作者头像（若阅读器会提取正文图片，不建议开启）     | 0/1/true/false | false                               |\n| showEmojiForRetweet        | 显示 “🔁” 取代 “转发” 两个字                                       | 0/1/true/false | false                               |\n| showRetweetTextInTitle     | 在标题出显示转发评论（置为 false 则在标题只显示被转发微博）        | 0/1/true/false | true                                |\n| addLinkForPics             | 为图片添加可点击的链接                                             | 0/1/true/false | false                               |\n| showTimestampInDescription | 在正文处显示被转发微博的时间戳                                     | 0/1/true/false | false                               |\n| widthOfPics                | 微博配图宽（生效取决于阅读器）                                     | 不指定 / 数字  | 不指定                              |\n| heightOfPics               | 微博配图高（生效取决于阅读器）                                     | 不指定 / 数字  | 不指定                              |\n| sizeOfAuthorAvatar         | 作者头像大小                                                       | 数字           | 48                                  |\n| displayVideo               | 是否直接显示微博视频和 Live Photo，只在博主或个人时间线 RSS 中有效 | 0/1/true/false | true                                |\n| displayArticle             | 是否直接显示微博文章，只在博主或个人时间线 RSS 中有效              | 0/1/true/false | false                               |\n| displayComments            | 是否直接显示热门评论，只在博主或个人时间线 RSS 中有效              | 0/1/true/false | false                               |\n| showEmojiInDescription     | 是否展示正文中的微博表情，关闭则替换为 `[表情名]`                  | 0/1/true/false | true                                |\n| showLinkIconInDescription  | 是否展示正文中的链接图标                                           | 0/1/true/false | true                                |\n| preferMobileLink           | 是否使用移动版链接（默认使用 PC 版）                               | 0/1/true/false | false                               |\n| showRetweeted              | 是否显示转发的微博                                                 | 0/1/true/false | true                               |\n\n指定更多与默认值不同的参数选项可以改善 RSS 的可读性，如\n\n[https://rsshub.app/weibo/user/1642909335/readable=1&authorNameBold=1&showAuthorInTitle=1&showAuthorInDesc=1&showAuthorAvatarInDesc=1&showEmojiForRetweet=1&showRetweetTextInTitle=0&addLinkForPics=1&showTimestampInDescription=1&showTimestampInDescription=1&heightOfPics=150](https://rsshub.app/weibo/user/1642909335/readable=1&authorNameBold=1&showAuthorInTitle=1&showAuthorInDesc=1&showAuthorAvatarInDesc=1&showEmojiForRetweet=1&showRetweetTextInTitle=0&addLinkForPics=1&showTimestampInDescription=1&showTimestampInDescription=1&heightOfPics=150)\n\n的效果为\n\n<img loading=\"lazy\" src=\"/img/readable-weibo.png\" alt=\"微博小秘书的可读微博 RSS\" />",
+    "description": "::: warning\n微博会针对请求的来源地区返回不同的结果。一个已知的例子为：部分视频因未知原因仅限中国大陆境内访问 (CDN 域名为 `locallimit.us.sinaimg.cn` 而非 `f.video.weibocdn.com`)。若一条微博含有这种视频且 RSSHub 实例部署在境外，抓取到的微博可能不含视频。将 RSSHub 部署在境内有助于抓取这种视频，但阅读器也必须处于境内网络环境以加载视频。\n:::\n\n对于微博内容，在 `routeParams` 参数中以 query string 格式指定选项，可以控制输出的样式\n\n| 键                         | 含义                                                               | 接受的值       | 默认值                              |\n| -------------------------- | ------------------------------------------------------------------ | -------------- | ----------------------------------- |\n| readable                   | 是否开启细节排版可读性优化                                         | 0/1/true/false | false                               |\n| authorNameBold             | 是否加粗作者名字                                                   | 0/1/true/false | false                               |\n| showAuthorInTitle          | 是否在标题处显示作者                                               | 0/1/true/false | false（`/weibo/keyword/`中为 true） |\n| showAuthorInDesc           | 是否在正文处显示作者                                               | 0/1/true/false | false（`/weibo/keyword/`中为 true） |\n| showAuthorAvatarInDesc     | 是否在正文处显示作者头像（若阅读器会提取正文图片，不建议开启）     | 0/1/true/false | false                               |\n| showEmojiForRetweet        | 显示 “🔁” 取代 “转发” 两个字                                       | 0/1/true/false | false                               |\n| showRetweetTextInTitle     | 在标题出显示转发评论（置为 false 则在标题只显示被转发微博）        | 0/1/true/false | true                                |\n| addLinkForPics             | 为图片添加可点击的链接                                             | 0/1/true/false | false                               |\n| showTimestampInDescription | 在正文处显示被转发微博的时间戳                                     | 0/1/true/false | false                               |\n| widthOfPics                | 微博配图宽（生效取决于阅读器）                                     | 不指定 / 数字  | 不指定                              |\n| heightOfPics               | 微博配图高（生效取决于阅读器）                                     | 不指定 / 数字  | 不指定                              |\n| sizeOfAuthorAvatar         | 作者头像大小                                                       | 数字           | 48                                  |\n| displayVideo               | 是否直接显示微博视频和 Live Photo，只在博主或个人时间线 RSS 中有效 | 0/1/true/false | true                                |\n| displayArticle             | 是否直接显示微博文章，只在博主或个人时间线 RSS 中有效              | 0/1/true/false | false                               |\n| displayComments            | 是否直接显示热门评论，只在博主或个人时间线 RSS 中有效              | 0/1/true/false | false                               |\n| showEmojiInDescription     | 是否展示正文中的微博表情，关闭则替换为 `[表情名]`                  | 0/1/true/false | true                                |\n| showLinkIconInDescription  | 是否展示正文中的链接图标                                           | 0/1/true/false | true                                |\n| preferMobileLink           | 是否使用移动版链接（默认使用 PC 版）                               | 0/1/true/false | false                               |\n| showRetweeted              | 是否显示转发的微博                                                 | 0/1/true/false | true                               |\n| showBloggerIcons           | 是否显示评论中博主的标志，只在显示热门评论时有效                                           | 0/1/true/false | false                               |\n\n指定更多与默认值不同的参数选项可以改善 RSS 的可读性，如\n\n[https://rsshub.app/weibo/user/1642909335/readable=1&authorNameBold=1&showAuthorInTitle=1&showAuthorInDesc=1&showAuthorAvatarInDesc=1&showEmojiForRetweet=1&showRetweetTextInTitle=0&addLinkForPics=1&showTimestampInDescription=1&showTimestampInDescription=1&heightOfPics=150](https://rsshub.app/weibo/user/1642909335/readable=1&authorNameBold=1&showAuthorInTitle=1&showAuthorInDesc=1&showAuthorAvatarInDesc=1&showEmojiForRetweet=1&showRetweetTextInTitle=0&addLinkForPics=1&showTimestampInDescription=1&showTimestampInDescription=1&heightOfPics=150)\n\n的效果为\n\n<img loading=\"lazy\" src=\"/img/readable-weibo.png\" alt=\"微博小秘书的可读微博 RSS\" />",
     "lang": "zh-CN"
   },
   "wellcee": {
@@ -97587,8 +100330,8 @@
               "description": ""
             }
           ],
-          "requirePuppeteer": false,
-          "antiCrawler": false,
+          "requirePuppeteer": true,
+          "antiCrawler": true,
           "supportBT": false,
           "supportPodcast": false,
           "supportScihub": false
@@ -99140,6 +101883,45 @@
     },
     "name": "优酷",
     "url": "i.youku.com",
+    "lang": "zh-CN"
+  },
+  "youmemark": {
+    "routes": {
+      "/:userid": {
+        "path": "/:userid",
+        "categories": [
+          "blog"
+        ],
+        "example": "/youmemark/pseudoyu",
+        "parameters": {
+          "userid": "`userid` is the user id of youmemark"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "Bookmarks",
+        "maintainers": [
+          "pseudoyu"
+        ],
+        "radar": [
+          {
+            "source": [
+              "youmemark.com/user/:userid"
+            ],
+            "target": "/:userid"
+          }
+        ],
+        "description": "Get user's public bookmarks from YouMeMark\n::: tip\n  Add `?limit=<number>` to the end of the route to limit the number of items. Default is 10.\n:::",
+        "location": "index.ts"
+      }
+    },
+    "name": "YouMeMark",
+    "url": "youmemark.com",
     "lang": "zh-CN"
   },
   "youtube": {
